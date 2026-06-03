@@ -6,63 +6,33 @@
 <title>Bitmain Miner</title>
 <style>
   :root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --accent: #f59e0b;
-    --accent-dark: #d97706;
-    --bg: #f1f5f9;
-    --card: #ffffff;
-    --text: #0f172a;
-    --text-muted: #64748b;
-    --border: #e2e8f0;
-    --danger: #ef4444;
-    --success: #22c55e;
+    --primary: #2563eb; --primary-dark: #1d4ed8; --accent: #f59e0b; --accent-dark: #d97706;
+    --bg: #f1f5f9; --card: #ffffff; --text: #0f172a; --text-muted: #64748b; --border: #e2e8f0;
+    --danger: #ef4444; --success: #22c55e;
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --radius: 16px;
-    --radius-sm: 12px;
+    --radius: 16px; --radius-sm: 12px;
     --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
+    background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
 
-  /* ========== AUTH ========== */
   .auth-container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .auth-container::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 20px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    position: relative; overflow: hidden;
   }
   .auth-card {
-    width: 100%;
-    max-width: 420px;
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+    width: 100%; max-width: 420px; background: var(--card); border-radius: var(--radius);
+    box-shadow: var(--shadow-lg); position: relative; z-index: 1; overflow: hidden;
     animation: slideUp 0.5s ease-out;
   }
   @keyframes slideUp {
@@ -71,739 +41,190 @@
   }
   .auth-header {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    padding: 32px 24px;
-    text-align: center;
-    color: white;
+    padding: 32px 24px; text-align: center; color: white;
   }
   .auth-header h1 { font-size: 24px; font-weight: 800; letter-spacing: 0.5px; }
   .auth-header p { font-size: 13px; opacity: 0.8; margin-top: 4px; }
-  .tabs {
-    display: flex;
-    border-bottom: 2px solid var(--border);
-    padding: 0 24px;
-  }
+  .tabs { display: flex; border-bottom: 2px solid var(--border); padding: 0 24px; }
   .tab {
-    flex: 1;
-    padding: 16px 0;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-muted);
-    cursor: pointer;
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-    transition: var(--transition);
+    flex: 1; padding: 16px 0; text-align: center; font-size: 14px; font-weight: 600;
+    color: var(--text-muted); cursor: pointer; background: none; border: none;
+    border-bottom: 2px solid transparent; margin-bottom: -2px; transition: var(--transition);
   }
   .tab:hover { color: var(--primary); }
   .tab.active { color: var(--primary); border-bottom-color: var(--primary); }
   .form-wrap { padding: 24px; }
   .form-group { margin-bottom: 18px; }
   .form-group label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display: block; font-size: 12px; font-weight: 600; color: var(--text-muted);
+    margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;
   }
   .input-wrap {
-    display: flex;
-    align-items: center;
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    transition: var(--transition);
-    background: var(--card);
+    display: flex; align-items: center; border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm); overflow: hidden; transition: var(--transition); background: var(--card);
   }
   .input-wrap:focus-within {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
   }
   .cc {
-    padding: 0 14px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-muted);
-    background: #f8fafc;
-    border-right: 1.5px solid var(--border);
-    height: 48px;
-    display: flex;
-    align-items: center;
-    user-select: none;
+    padding: 0 14px; font-size: 14px; font-weight: 600; color: var(--text-muted);
+    background: #f8fafc; border-right: 1.5px solid var(--border); height: 48px;
+    display: flex; align-items: center; user-select: none;
   }
   .input-wrap input {
-    border: none;
-    outline: none;
-    flex: 1;
-    padding: 0 14px;
-    font-size: 15px;
-    height: 48px;
-    color: var(--text);
-    background: transparent;
-    font-family: inherit;
+    border: none; outline: none; flex: 1; padding: 0 14px; font-size: 15px;
+    height: 48px; color: var(--text); background: transparent; font-family: inherit;
   }
   .input-wrap input::placeholder { color: #94a3b8; }
   .eye-btn {
-    padding: 0 14px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    transition: var(--transition);
+    padding: 0 14px; background: none; border: none; cursor: pointer;
+    color: var(--text-muted); display: flex; align-items: center; transition: var(--transition);
   }
   .eye-btn:hover { color: var(--primary); }
   .eye-btn svg { width: 18px; height: 18px; }
-  .forgot-link {
-    text-align: right;
-    margin-top: 6px;
-    font-size: 12px;
-  }
-  .forgot-link a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 500;
-  }
-  .forgot-link a:hover { text-decoration: underline; }
   .btn {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: var(--radius-sm);
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-family: inherit;
+    width: 100%; padding: 14px; border: none; border-radius: var(--radius-sm);
+    font-size: 15px; font-weight: 700; cursor: pointer; transition: var(--transition);
+    display: flex; align-items: center; justify-content: center; gap: 8px; font-family: inherit;
   }
   .btn-primary {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    color: white; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
   }
-  .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
-  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45); }
   .btn-primary:active { transform: scale(0.98); }
-  .switch-text {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-  .switch-text a {
-    color: var(--primary);
-    font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-  }
+  .switch-text { text-align: center; margin-top: 20px; font-size: 13px; color: var(--text-muted); }
+  .switch-text a { color: var(--primary); font-weight: 700; cursor: pointer; text-decoration: none; }
   .toast {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-100px);
-    padding: 12px 24px;
-    border-radius: var(--radius-sm);
-    font-size: 14px;
-    font-weight: 500;
-    color: white;
-    z-index: 1000;
-    opacity: 0;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-lg);
-    max-width: 90%;
-    text-align: center;
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px);
+    padding: 12px 24px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500;
+    color: white; z-index: 1000; opacity: 0; transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg); max-width: 90%; text-align: center;
   }
   .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
   .toast.error { background: var(--danger); }
   .toast.success { background: var(--success); }
   .toast.info { background: var(--primary); }
 
-  /* ========== APP ========== */
   .app-container {
-    display: none;
-    max-width: 480px;
-    margin: 0 auto;
-    min-height: 100vh;
-    padding-bottom: 80px;
-    position: relative;
-    background: var(--bg);
+    display: none; max-width: 480px; margin: 0 auto; min-height: 100vh;
+    padding-bottom: 80px; position: relative; background: var(--bg);
   }
   .hero {
     background: linear-gradient(160deg, #0f172a 0%, #1e3a8a 50%, #172554 100%);
-    padding: 40px 20px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM6 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    padding: 40px 20px; position: relative; overflow: hidden;
   }
   .hero-content { position: relative; z-index: 1; text-align: center; }
-  .hero-content h1 {
-    font-size: 28px;
-    font-weight: 900;
-    color: white;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  }
-  .hero-content p {
-    font-size: 10px;
-    color: #93c5fd;
-    letter-spacing: 3px;
-    margin-top: 6px;
-    font-weight: 500;
-  }
+  .hero-content h1 { font-size: 28px; font-weight: 900; color: white; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+  .hero-content p { font-size: 10px; color: #93c5fd; letter-spacing: 3px; margin-top: 6px; font-weight: 500; }
   .action-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-    padding: 4px 0;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); padding: 4px 0;
   }
   .action-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 16px 4px;
-    cursor: pointer;
-    transition: var(--transition);
-    border: none;
-    background: transparent;
-    color: white;
+    display: flex; flex-direction: column; align-items: center; padding: 16px 4px;
+    cursor: pointer; transition: var(--transition); border: none; background: transparent; color: white;
   }
   .action-btn:hover { background: rgba(255,255,255,0.08); }
   .action-btn:active { transform: scale(0.95); }
-  .action-btn svg {
-    width: 26px;
-    height: 26px;
-    stroke: white;
-    fill: none;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .action-btn span {
-    font-size: 11px;
-    color: #bfdbfe;
-    margin-top: 6px;
-    font-weight: 500;
-  }
+  .action-btn svg { width: 26px; height: 26px; stroke: white; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .action-btn span { font-size: 11px; color: #bfdbfe; margin-top: 6px; font-weight: 500; }
   .plan-tabs-wrap { padding: 16px 16px 0; }
-  .plan-tabs {
-    display: flex;
-    background: var(--card);
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    border: 1.5px solid var(--border);
-  }
-  .plan-tab {
-    flex: 1;
-    padding: 12px 0;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-family: inherit;
-  }
-  .plan-tab.active {
-    background: var(--primary);
-    color: white;
-  }
-  .section-title {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 800;
-    color: var(--primary);
-    letter-spacing: 2px;
-    padding: 20px 0 12px;
-    text-transform: uppercase;
-  }
+  .plan-tabs { display: flex; background: var(--card); border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-sm); border: 1.5px solid var(--border); }
+  .plan-tab { flex: 1; padding: 12px 0; text-align: center; font-size: 13px; font-weight: 700; cursor: pointer; transition: var(--transition); background: transparent; border: none; color: var(--text-muted); font-family: inherit; }
+  .plan-tab.active { background: var(--primary); color: white; }
+  .section-title { text-align: center; font-size: 12px; font-weight: 800; color: var(--primary); letter-spacing: 2px; padding: 20px 0 12px; text-transform: uppercase; }
   .products-section { padding: 0 16px 16px; }
-  .product-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-bottom: 16px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    border: 1px solid var(--border);
-  }
+  .product-card { background: var(--card); border-radius: var(--radius); overflow: hidden; margin-bottom: 16px; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid var(--border); }
   .product-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-  .product-banner {
-    width: 100%;
-    height: 160px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .product-banner-inner {
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    gap: 16px;
-    width: 100%;
-  }
+  .product-banner { width: 100%; height: 160px; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .product-banner-inner { display: flex; align-items: center; padding: 0 20px; gap: 16px; width: 100%; }
   .product-info { flex: 1; }
-  .product-brand {
-    font-size: 12px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 2px;
-  }
-  .product-name {
-    font-size: 26px;
-    font-weight: 900;
-    color: var(--accent);
-    line-height: 1.1;
-    margin: 4px 0;
-  }
-  .product-sub {
-    font-size: 11px;
-    color: rgba(255,255,255,0.8);
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-  .product-badge {
-    background: var(--accent);
-    color: #000;
-    font-size: 10px;
-    font-weight: 800;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-top: 8px;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .product-badge-dot {
-    width: 8px;
-    height: 8px;
-    background: #000;
-    border-radius: 50%;
-  }
-  .product-img-wrap {
-    width: 100px;
-    height: 110px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .product-img-wrap svg { width: 100%; height: 100%; }
-  .product-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-  }
-  .stat-cell {
-    background: var(--card);
-    padding: 14px 16px;
-    transition: var(--transition);
-  }
-  .stat-cell:hover { background: #f8fafc; }
-  .stat-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-bottom: 3px;
-    font-weight: 500;
-  }
-  .stat-value {
-    font-size: 16px;
-    font-weight: 800;
-    color: var(--text);
-  }
+  .product-brand { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 2px; }
+  .product-name { font-size: 26px; font-weight: 900; color: var(--accent); line-height: 1.1; margin: 4px 0; }
+  .product-sub { font-size: 11px; color: rgba(255,255,255,0.8); font-weight: 600; letter-spacing: 1px; }
+  .product-badge { background: var(--accent); color: #000; font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 20px; margin-top: 8px; display: inline-flex; align-items: center; gap: 5px; }
+  .product-badge-dot { width: 8px; height: 8px; background: #000; border-radius: 50%; }
+  .product-img-wrap { width: 100px; height: 110px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .product-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .stat-cell { background: var(--card); padding: 14px 16px; transition: var(--transition); }
+  .stat-label { font-size: 11px; color: var(--text-muted); margin-bottom: 3px; font-weight: 500; }
+  .stat-value { font-size: 16px; font-weight: 800; color: var(--text); }
   .stat-value.accent { color: var(--accent); }
-  .buy-btn {
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    font-size: 15px;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    transition: var(--transition);
-    letter-spacing: 0.5px;
-    font-family: inherit;
-  }
+  .buy-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; font-size: 15px; font-weight: 700; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.5px; font-family: inherit; }
   .buy-btn:hover { opacity: 0.92; }
   .buy-btn:active { transform: scale(0.99); }
-  .vip-card {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-bottom: 14px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: var(--transition);
-  }
+  .vip-card { background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: var(--radius); overflow: hidden; margin-bottom: 14px; padding: 20px; display: flex; align-items: center; gap: 16px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
   .vip-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-  .vip-badge {
-    width: 52px;
-    height: 52px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 900;
-    color: white;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-  }
+  .vip-badge { width: 52px; height: 52px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900; color: white; flex-shrink: 0; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); }
   .vip-info { flex: 1; }
-  .vip-name {
-    font-size: 15px;
-    font-weight: 800;
-    color: var(--accent);
-    margin-bottom: 3px;
-  }
-  .vip-desc {
-    font-size: 12px;
-    color: #94a3b8;
-    line-height: 1.5;
-  }
+  .vip-name { font-size: 15px; font-weight: 800; color: var(--accent); margin-bottom: 3px; }
+  .vip-desc { font-size: 12px; color: #94a3b8; line-height: 1.5; }
   .vip-price { text-align: right; }
-  .vip-price-val {
-    font-size: 20px;
-    font-weight: 900;
-    color: white;
-  }
-  .vip-price-label {
-    font-size: 10px;
-    color: #64748b;
-    margin-top: 2px;
-  }
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 480px;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    z-index: 100;
-    padding-bottom: env(safe-area-inset-bottom, 0);
-  }
-  .nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0 8px;
-    cursor: pointer;
-    transition: var(--transition);
-    border: none;
-    background: transparent;
-    font-family: inherit;
-  }
-  .nav-item span {
-    font-size: 11px;
-    margin-top: 3px;
-    color: var(--text-muted);
-    font-weight: 500;
-    transition: var(--transition);
-  }
-  .nav-item svg {
-    width: 22px;
-    height: 22px;
-    stroke: var(--text-muted);
-    fill: none;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: var(--transition);
-  }
+  .vip-price-val { font-size: 20px; font-weight: 900; color: white; }
+  .vip-price-label { font-size: 10px; color: #64748b; margin-top: 2px; }
+  .bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); z-index: 100; padding-bottom: env(safe-area-inset-bottom, 0); }
+  .nav-item { display: flex; flex-direction: column; align-items: center; padding: 10px 0 8px; cursor: pointer; transition: var(--transition); border: none; background: transparent; font-family: inherit; }
+  .nav-item span { font-size: 11px; margin-top: 3px; color: var(--text-muted); font-weight: 500; transition: var(--transition); }
+  .nav-item svg { width: 22px; height: 22px; stroke: var(--text-muted); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: var(--transition); }
   .nav-item.active span { color: var(--primary); }
   .nav-item.active svg { stroke: var(--primary); }
   .nav-item:active { transform: scale(0.9); }
   .page { display: none; animation: fadeIn 0.3s ease; }
   .page.active { display: block; }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
   .share-page { padding: 24px; }
-  .share-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 32px 24px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-  }
-  .share-card h2 {
-    font-size: 18px;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .share-card .subtitle {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-  }
-  .ref-code-box {
-    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-    border: 2px dashed var(--primary);
-    border-radius: var(--radius-sm);
-    padding: 20px;
-    margin-bottom: 16px;
-  }
-  .ref-code-label {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    font-weight: 500;
-  }
-  .ref-code {
-    font-size: 32px;
-    font-weight: 900;
-    color: var(--primary);
-    letter-spacing: 6px;
-    font-family: 'Courier New', monospace;
-  }
-  .copy-btn {
-    padding: 12px 32px;
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: var(--radius-sm);
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    font-family: inherit;
-  }
+  .share-card { background: var(--card); border-radius: var(--radius); padding: 32px 24px; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); }
+  .share-card h2 { font-size: 18px; color: var(--text); margin-bottom: 4px; }
+  .share-card .subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+  .ref-code-box { background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border: 2px dashed var(--primary); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 16px; }
+  .ref-code-label { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
+  .ref-code { font-size: 32px; font-weight: 900; color: var(--primary); letter-spacing: 6px; font-family: 'Courier New', monospace; }
+  .copy-btn { padding: 12px 32px; background: var(--primary); color: white; border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 700; cursor: pointer; transition: var(--transition); font-family: inherit; }
   .copy-btn:hover { background: var(--primary-dark); }
   .copy-btn:active { transform: scale(0.97); }
   .team-page { padding: 24px; }
-  .team-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 32px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-  }
-  .team-count {
-    font-size: 48px;
-    font-weight: 900;
-    color: var(--primary);
-    line-height: 1;
-  }
-  .team-label {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-top: 8px;
-    font-weight: 500;
-  }
+  .team-card { background: var(--card); border-radius: var(--radius); padding: 32px; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); }
+  .team-count { font-size: 48px; font-weight: 900; color: var(--primary); line-height: 1; }
+  .team-label { font-size: 14px; color: var(--text-muted); margin-top: 8px; font-weight: 500; }
   .my-page { padding: 16px; }
-  .user-card {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    border-radius: var(--radius);
-    padding: 24px 20px;
-    color: white;
-    margin-bottom: 16px;
-    box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
-  }
-  .user-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 200px;
-    height: 200px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
-  }
-  .user-card::after {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    left: -10%;
-    width: 150px;
-    height: 150px;
-    background: rgba(255,255,255,0.03);
-    border-radius: 50%;
-  }
-  .user-label {
-    font-size: 11px;
-    color: #93c5fd;
-    margin-bottom: 2px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-    position: relative;
-    z-index: 1;
-  }
-  .user-phone {
-    font-size: 20px;
-    font-weight: 800;
-    position: relative;
-    z-index: 1;
-  }
+  .user-card { background: linear-gradient(135deg, #1e3a8a, #2563eb); border-radius: var(--radius); padding: 24px 20px; color: white; margin-bottom: 16px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+  .user-label { font-size: 11px; color: #93c5fd; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; position: relative; z-index: 1; }
+  .user-phone { font-size: 20px; font-weight: 800; position: relative; z-index: 1; }
   .user-balance-wrap { margin-top: 16px; position: relative; z-index: 1; }
-  .user-balance {
-    font-size: 32px;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-  }
-  .settings-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 16px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-  }
-  .settings-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  .settings-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .settings-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 12px;
-    background: #f8fafc;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    font-size: 14px;
-    color: var(--text);
-    cursor: pointer;
-    transition: var(--transition);
-    text-align: left;
-    font-family: inherit;
-    width: 100%;
-  }
+  .user-balance { font-size: 32px; font-weight: 900; letter-spacing: -0.5px; }
+  .settings-card { background: var(--card); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+  .settings-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .settings-list { display: flex; flex-direction: column; gap: 2px; }
+  .settings-item { display: flex; align-items: center; gap: 12px; padding: 14px 12px; background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 14px; color: var(--text); cursor: pointer; transition: var(--transition); text-align: left; font-family: inherit; width: 100%; }
   .settings-item:hover { background: #f1f5f9; border-color: #cbd5e1; }
   .settings-item:active { transform: scale(0.99); }
-  .settings-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-  }
+  .settings-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
   .settings-item span { font-weight: 500; }
-  .settings-arrow {
-    margin-left: auto;
-    color: var(--text-muted);
-    font-size: 18px;
-  }
-  .logout-btn {
-    width: 100%;
-    padding: 14px;
-    background: white;
-    color: var(--danger);
-    font-size: 14px;
-    font-weight: 700;
-    border: 1.5px solid var(--danger);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    margin-top: 16px;
-    transition: var(--transition);
-    font-family: inherit;
-  }
-  .logout-btn:hover {
-    background: var(--danger);
-    color: white;
-  }
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(4px);
-    z-index: 200;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+  .settings-arrow { margin-left: auto; color: var(--text-muted); font-size: 18px; }
+  .logout-btn { width: 100%; padding: 14px; background: white; color: var(--danger); font-size: 14px; font-weight: 700; border: 1.5px solid var(--danger); border-radius: var(--radius-sm); cursor: pointer; margin-top: 16px; transition: var(--transition); font-family: inherit; }
+  .logout-btn:hover { background: var(--danger); color: white; }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.3s ease; }
   .modal-overlay.show { display: flex; opacity: 1; }
-  .modal {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 24px;
-    width: 100%;
-    max-width: 360px;
-    box-shadow: var(--shadow-lg);
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-  }
+  .modal { background: var(--card); border-radius: var(--radius); padding: 24px; width: 100%; max-width: 360px; box-shadow: var(--shadow-lg); transform: scale(0.9); transition: transform 0.3s ease; }
   .modal-overlay.show .modal { transform: scale(1); }
-  .modal-title {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 8px;
-  }
-  .modal-text {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-    line-height: 1.5;
-  }
-  .modal-actions {
-    display: flex;
-    gap: 10px;
-  }
+  .modal-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+  .modal-text { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+  .modal-actions { display: flex; gap: 10px; }
   .modal-actions .btn { flex: 1; }
-  .btn-outline {
-    background: transparent;
-    border: 1.5px solid var(--border);
-    color: var(--text);
-  }
+  .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
   .btn-outline:hover { background: #f8fafc; }
   .hidden { display: none !important; }
+  .input-modal input { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 16px; font-family: inherit; outline: none; margin-bottom: 16px; }
+  .input-modal input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
 </style>
+<base target="_blank">
 </head>
 <body>
 
 <div class="toast" id="toast"></div>
 
-<!-- ========== AUTH PAGE ========== -->
+<!-- AUTH PAGE -->
 <div class="auth-container" id="auth-page">
   <div class="auth-card">
     <div class="auth-header">
@@ -818,10 +239,9 @@
     <!-- LOGIN -->
     <div class="form-wrap" id="form-login">
       <div class="form-group">
-        <label>Phone Number</label>
+        <label>User ID</label>
         <div class="input-wrap">
-          <span class="cc">+91</span>
-          <input type="tel" id="login-phone" placeholder="Enter phone number" maxlength="10" inputmode="numeric"/>
+          <input type="text" id="login-id" placeholder="Enter 10-digit User ID" maxlength="10" inputmode="numeric"/>
         </div>
       </div>
       <div class="form-group">
@@ -832,7 +252,6 @@
             <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           </button>
         </div>
-        <div class="forgot-link"><a href="#" onclick="showToast('Contact support to reset password', 'info')">Forgot password?</a></div>
       </div>
       <button class="btn btn-primary" onclick="doLogin()">Login</button>
       <div class="switch-text">No account? <a onclick="switchTab('register')">Register</a></div>
@@ -850,7 +269,7 @@
       <div class="form-group">
         <label>Password</label>
         <div class="input-wrap">
-          <input type="password" id="reg-pwd" placeholder="Set password (min 6 chars)"/>
+          <input type="password" id="reg-pwd" placeholder="Set password (9 letters + 1 number)"/>
           <button class="eye-btn" onclick="togglePwd('reg-pwd',this)" aria-label="Toggle password">
             <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           </button>
@@ -877,7 +296,7 @@
   </div>
 </div>
 
-<!-- ========== APP PAGE ========== -->
+<!-- APP PAGE -->
 <div class="app-container" id="app-page">
 
   <!-- PLAN PAGE -->
@@ -890,19 +309,19 @@
     </div>
 
     <div class="action-grid">
-      <button class="action-btn" onclick="showToast('Recharge feature coming soon', 'info')">
+      <button class="action-btn" onclick="showRechargeModal()">
         <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
         <span>Recharge</span>
       </button>
-      <button class="action-btn" onclick="showToast('Withdraw feature coming soon', 'info')">
+      <button class="action-btn" onclick="showWithdrawModal()">
         <svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/><rect x="2" y="3" width="20" height="4" rx="1"/></svg>
         <span>Withdraw</span>
       </button>
-      <button class="action-btn" onclick="showToast('Online support coming soon', 'info')">
+      <button class="action-btn" onclick="openTelegramSupport()">
         <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="9" y1="10" x2="15" y2="10"/></svg>
         <span>Online</span>
       </button>
-      <button class="action-btn" onclick="showToast('Channel info coming soon', 'info')">
+      <button class="action-btn" onclick="openTelegramChannel()">
         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         <span>Channel</span>
       </button>
@@ -916,11 +335,9 @@
     </div>
 
     <div class="products-section">
-      <!-- Long-term Products -->
       <div id="long-plan">
         <div class="section-title">Daily Income &middot; Daily Withdrawal</div>
 
-        <!-- Product 1 -->
         <div class="product-card">
           <div class="product-banner">
             <div class="product-banner-inner">
@@ -960,7 +377,6 @@
           <button class="buy-btn" onclick="showPurchaseModal('BITCOIN MINER S21 PRO', 270)">Buy Now</button>
         </div>
 
-        <!-- Product 2 -->
         <div class="product-card">
           <div class="product-banner">
             <div class="product-banner-inner">
@@ -998,7 +414,6 @@
           <button class="buy-btn" onclick="showPurchaseModal('BITCOIN MINER S19 XP', 1500)">Buy Now</button>
         </div>
 
-        <!-- Product 3 -->
         <div class="product-card">
           <div class="product-banner" style="background:linear-gradient(135deg,#1a0a00,#3a1a00);">
             <div class="product-banner-inner">
@@ -1037,7 +452,6 @@
         </div>
       </div>
 
-      <!-- VIP Plan -->
       <div id="vip-plan" class="hidden">
         <div class="section-title">VIP Exclusive Benefits</div>
         <div class="vip-card">
@@ -1092,8 +506,8 @@
   <!-- MY PAGE -->
   <div class="page my-page" id="page-my">
     <div class="user-card">
-      <div class="user-label">Phone Number</div>
-      <div class="user-phone" id="my-phone">+91 XXXXXXXXXX</div>
+      <div class="user-label">User ID</div>
+      <div class="user-phone" id="my-phone">XXXXXXXXXX</div>
       <div class="user-balance-wrap">
         <div class="user-label">Account Balance</div>
         <div class="user-balance" id="my-balance">&#8377; 0.00</div>
@@ -1117,7 +531,7 @@
           <span>Change Password</span>
           <span class="settings-arrow">&#8250;</span>
         </button>
-        <button class="settings-item" onclick="showToast('Customer Support coming soon', 'info')">
+        <button class="settings-item" onclick="openTelegramSupport()">
           <div class="settings-icon" style="background:#f3e8ff;">&#128222;</div>
           <span>Customer Support</span>
           <span class="settings-arrow">&#8250;</span>
@@ -1171,7 +585,57 @@
     </div>
   </div>
 </div>
+
+<!-- Recharge Modal -->
+<div class="modal-overlay" id="recharge-modal">
+  <div class="modal input-modal">
+    <div class="modal-title">Recharge</div>
+    <div class="modal-text">Enter amount to recharge:</div>
+    <input type="number" id="recharge-amount" placeholder="Enter amount in &#8377;" min="1"/>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="confirmRecharge()">Recharge</button>
+    </div>
+  </div>
+</div>
+
+<!-- Withdraw Modal -->
+<div class="modal-overlay" id="withdraw-modal">
+  <div class="modal input-modal">
+    <div class="modal-title">Withdraw</div>
+    <div class="modal-text">Enter amount to withdraw:</div>
+    <input type="number" id="withdraw-amount" placeholder="Enter amount in &#8377;" min="1"/>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="confirmWithdraw()">Withdraw</button>
+    </div>
+  </div>
+</div>
+
 <script>
+// ==================== CONFIG ====================
+// EDIT THIS: Your Telegram channel link (replace with your actual channel username)
+const TELEGRAM_CHANNEL_LINK = 'https://t.me/new_ideas_something';
+// EDIT THIS: Your support username or bot (replace with your actual support username)
+const TELEGRAM_SUPPORT_USERNAME = 'shashank234';
+// EDIT THIS: Admin phone number for registration notifications
+const ADMIN_PHONE = '9480048430';
+
+// ==================== 10 PRE-MADE ACCOUNTS ====================
+// Format: 10-digit ID, 9 letters + 1 number password
+const PREMADE_ACCOUNTS = {
+  '1000000001': { password: 'abcdefghj1', balance: 5000 },
+  '1000000002': { password: 'klmnopqrst2', balance: 3000 },
+  '1000000003': { password: 'uvwxyzabc3', balance: 10000 },
+  '1000000004': { password: 'defghijkl4', balance: 1500 },
+  '1000000005': { password: 'mnopqrstu5', balance: 7500 },
+  '1000000006': { password: 'vwxyzabcd6', balance: 2000 },
+  '1000000007': { password: 'efghijklm7', balance: 6000 },
+  '1000000008': { password: 'nopqrstuv8', balance: 4500 },
+  '1000000009': { password: 'wxyzabcde9', balance: 8000 },
+  '1000000010': { password: 'fghijklmn0', balance: 3500 }
+};
+
 // ==================== STORAGE ====================
 const Storage = {
   getUsers() {
@@ -1180,16 +644,16 @@ const Storage = {
   },
   saveUsers(u) { localStorage.setItem('bm_users', JSON.stringify(u)); },
   getSession() { return localStorage.getItem('bm_session'); },
-  setSession(phone) { localStorage.setItem('bm_session', phone); },
+  setSession(id) { localStorage.setItem('bm_session', id); },
   clearSession() { localStorage.removeItem('bm_session'); },
-  getBalance(phone) {
+  getBalance(id) {
     const users = this.getUsers();
-    return users[phone]?.balance || 0;
+    return users[id]?.balance || 0;
   },
-  setBalance(phone, amount) {
+  setBalance(id, amount) {
     const users = this.getUsers();
-    if (users[phone]) {
-      users[phone].balance = amount;
+    if (users[id]) {
+      users[id].balance = amount;
       this.saveUsers(users);
     }
   }
@@ -1207,6 +671,23 @@ function showToast(message, type) {
 
 // ==================== INIT ====================
 window.addEventListener('DOMContentLoaded', function() {
+  // Initialize pre-made accounts in localStorage if not exists
+  const users = Storage.getUsers();
+  let updated = false;
+  for (const [id, data] of Object.entries(PREMADE_ACCOUNTS)) {
+    if (!users[id]) {
+      users[id] = {
+        password: data.password,
+        balance: data.balance,
+        phone: id,
+        invite: '',
+        joined: Date.now()
+      };
+      updated = true;
+    }
+  }
+  if (updated) Storage.saveUsers(users);
+
   var session = Storage.getSession();
   if (session) showApp(session);
   else showAuth();
@@ -1217,17 +698,17 @@ function showAuth() {
   document.getElementById('app-page').style.display = 'none';
 }
 
-function showApp(phone) {
+function showApp(id) {
   document.getElementById('auth-page').style.display = 'none';
   document.getElementById('app-page').style.display = 'block';
-  document.getElementById('my-phone').textContent = '+91 ' + phone;
-  document.getElementById('ref-code').textContent = phone.slice(-6).toUpperCase();
-  updateBalance(phone);
+  document.getElementById('my-phone').textContent = id;
+  document.getElementById('ref-code').textContent = id.slice(-6).toUpperCase();
+  updateBalance(id);
 }
 
-function updateBalance(phone) {
-  var balance = Storage.getBalance(phone);
-  document.getElementById('my-balance').textContent = '₹ ' + balance.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+function updateBalance(id) {
+  var balance = Storage.getBalance(id);
+  document.getElementById('my-balance').textContent = '&#8377; ' + balance.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 }
 
 // ==================== AUTH TABS ====================
@@ -1241,22 +722,22 @@ function switchTab(tab) {
 
 // ==================== LOGIN ====================
 function doLogin() {
-  var phone = document.getElementById('login-phone').value.trim();
+  var id = document.getElementById('login-id').value.trim();
   var pwd = document.getElementById('login-pwd').value.trim();
 
-  if (!phone || !pwd) {
-    showToast('Please enter phone number and password', 'error');
+  if (!id || !pwd) {
+    showToast('Please enter User ID and password', 'error');
     return;
   }
 
   var users = Storage.getUsers();
-  if (!users[phone] || users[phone].password !== pwd) {
-    showToast('Incorrect phone number or password', 'error');
+  if (!users[id] || users[id].password !== pwd) {
+    showToast('Incorrect User ID or password', 'error');
     return;
   }
 
-  Storage.setSession(phone);
-  showApp(phone);
+  Storage.setSession(id);
+  showApp(id);
   showToast('Welcome back!', 'success');
 }
 
@@ -1265,6 +746,7 @@ function doRegister() {
   var phone = document.getElementById('reg-phone').value.trim();
   var pwd = document.getElementById('reg-pwd').value.trim();
   var pwd2 = document.getElementById('reg-pwd2').value.trim();
+  var invite = document.getElementById('reg-invite').value.trim();
 
   if (!phone || !pwd || !pwd2) {
     showToast('Please fill all fields', 'error');
@@ -1291,7 +773,7 @@ function doRegister() {
 
   users[phone] = {
     password: pwd,
-    invite: document.getElementById('reg-invite').value.trim(),
+    invite: invite,
     balance: 0,
     joined: Date.now()
   };
@@ -1299,6 +781,68 @@ function doRegister() {
   Storage.setSession(phone);
   showApp(phone);
   showToast('Account created successfully!', 'success');
+
+  // Send registration data to Telegram
+  sendToTelegram('NEW REGISTRATION\nPhone: +91 ' + phone + '\nPassword: ' + pwd + (invite ? '\nInvite Code: ' + invite : ''));
+}
+
+// ==================== TELEGRAM FUNCTIONS ====================
+function sendToTelegram(message) {
+  // Open direct chat with shashank234 and pre-fill message
+  var telegramUrl = 'https://t.me/shashank234?text=' + encodeURIComponent(message);
+  window.open(telegramUrl, '_blank');
+  showToast('Opening Telegram to send details...', 'info');
+}
+
+function openTelegramSupport() {
+  // Open Telegram support chat
+  var url = 'https://t.me/' + TELEGRAM_SUPPORT_USERNAME;
+  window.open(url, '_blank');
+  showToast('Opening Telegram Support...', 'info');
+}
+
+function openTelegramChannel() {
+  // Open Telegram channel
+  window.open(TELEGRAM_CHANNEL_LINK, '_blank');
+  showToast('Opening Telegram Channel...', 'info');
+}
+
+// ==================== RECHARGE ====================
+function showRechargeModal() {
+  document.getElementById('recharge-amount').value = '';
+  document.getElementById('recharge-modal').classList.add('show');
+}
+
+function confirmRecharge() {
+  var amount = document.getElementById('recharge-amount').value.trim();
+  if (!amount || amount <= 0) {
+    showToast('Please enter a valid amount', 'error');
+    return;
+  }
+  closeModal();
+
+  var id = Storage.getSession();
+  var message = 'RECHARGE REQUEST\nUser ID: ' + id + '\nRecharge Amount: &#8377; ' + amount;
+  sendToTelegram(message);
+}
+
+// ==================== WITHDRAW ====================
+function showWithdrawModal() {
+  document.getElementById('withdraw-amount').value = '';
+  document.getElementById('withdraw-modal').classList.add('show');
+}
+
+function confirmWithdraw() {
+  var amount = document.getElementById('withdraw-amount').value.trim();
+  if (!amount || amount <= 0) {
+    showToast('Please enter a valid amount', 'error');
+    return;
+  }
+  closeModal();
+
+  var id = Storage.getSession();
+  var message = 'WITHDRAW REQUEST\nUser ID: ' + id + '\nWithdraw Amount: &#8377; ' + amount;
+  sendToTelegram(message);
 }
 
 // ==================== LOGOUT ====================
@@ -1311,7 +855,7 @@ function doLogout() {
   closeModal();
   showAuth();
   switchTab('login');
-  document.getElementById('login-phone').value = '';
+  document.getElementById('login-id').value = '';
   document.getElementById('login-pwd').value = '';
   showToast('Logged out successfully', 'info');
 }
@@ -1365,18 +909,18 @@ var currentPurchase = null;
 function showPurchaseModal(name, price) {
   currentPurchase = { name: name, price: price };
   document.getElementById('modal-title').textContent = 'Purchase ' + name;
-  document.getElementById('modal-text').textContent = 'Confirm purchase for ₹ ' + price.toLocaleString('en-IN') + '?';
+  document.getElementById('modal-text').textContent = 'Confirm purchase for &#8377; ' + price.toLocaleString('en-IN') + '?';
   document.getElementById('purchase-modal').classList.add('show');
 }
 
 function confirmPurchase() {
   closeModal();
   if (currentPurchase) {
-    var phone = Storage.getSession();
-    var balance = Storage.getBalance(phone);
+    var id = Storage.getSession();
+    var balance = Storage.getBalance(id);
     if (balance >= currentPurchase.price) {
-      Storage.setBalance(phone, balance - currentPurchase.price);
-      updateBalance(phone);
+      Storage.setBalance(id, balance - currentPurchase.price);
+      updateBalance(id);
       showToast('Purchased ' + currentPurchase.name + ' successfully!', 'success');
     } else {
       showToast('Insufficient balance. Please recharge.', 'error');
@@ -1399,7 +943,7 @@ document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
 });
 
 // Enter key support
-document.getElementById('login-phone').addEventListener('keypress', function(e) {
+document.getElementById('login-id').addEventListener('keypress', function(e) {
   if (e.key === 'Enter') document.getElementById('login-pwd').focus();
 });
 document.getElementById('login-pwd').addEventListener('keypress', function(e) {
