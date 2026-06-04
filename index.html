@@ -24,6 +24,7 @@
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
   .auth-container {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
     padding: 20px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -104,6 +105,7 @@
   .toast.error { background: var(--danger); }
   .toast.success { background: var(--success); }
   .toast.info { background: var(--primary); }
+
   .app-container {
     display: none; max-width: 480px; margin: 0 auto; min-height: 100vh;
     padding-bottom: 80px; position: relative; background: var(--bg);
@@ -115,6 +117,18 @@
   .hero-content { position: relative; z-index: 1; text-align: center; }
   .hero-content h1 { font-size: 28px; font-weight: 900; color: white; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
   .hero-content p { font-size: 10px; color: #93c5fd; letter-spacing: 3px; margin-top: 6px; font-weight: 500; }
+  .action-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); padding: 4px 0;
+  }
+  .action-btn {
+    display: flex; flex-direction: column; align-items: center; padding: 16px 4px;
+    cursor: pointer; transition: var(--transition); border: none; background: transparent; color: white;
+  }
+  .action-btn:hover { background: rgba(255,255,255,0.08); }
+  .action-btn:active { transform: scale(0.95); }
+  .action-btn svg { width: 26px; height: 26px; stroke: white; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .action-btn span { font-size: 11px; color: #bfdbfe; margin-top: 6px; font-weight: 500; }
   .plan-tabs-wrap { padding: 16px 16px 0; }
   .plan-tabs { display: flex; background: var(--card); border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-sm); border: 1.5px solid var(--border); }
   .plan-tab { flex: 1; padding: 12px 0; text-align: center; font-size: 13px; font-weight: 700; cursor: pointer; transition: var(--transition); background: transparent; border: none; color: var(--text-muted); font-family: inherit; }
@@ -486,9 +500,9 @@
       <div class="settings-title">Account Settings</div>
       <div class="settings-list">
         <button class="settings-item" onclick="openTelegramSupport()">
-          <div class="settings-icon" style="background:#f3e8ff;">📞</div>
+          <div class="settings-icon" style="background:#f3e8ff;">&#128222;</div>
           <span>Customer Support</span>
-          <span class="settings-arrow">›</span>
+          <span class="settings-arrow">&#8250;</span>
         </button>
       </div>
     </div>
@@ -563,8 +577,24 @@ var PREMADE_ACCOUNTS = {
 // ==================== STORAGE ====================
 const Storage = {
   getUsers() {
-    try { return JSON.parse(localStorage.getItem('bm_users') || '{}'); }
-    catch(e) { return {}; }
+    try { 
+      let users = JSON.parse(localStorage.getItem('bm_users') || '{}');
+      // Ensure all PREMADE_ACCOUNTS are always available
+      for (const [id, data] of Object.entries(PREMADE_ACCOUNTS)) {
+        if (!users[id]) {
+          users[id] = {
+            password: data.password,
+            balance: data.balance,
+            phone: id,
+            invite: '',
+            joined: Date.now()
+          };
+        }
+      }
+      this.saveUsers(users);
+      return users;
+    }
+    catch(e) { return PREMADE_ACCOUNTS; }
   },
   saveUsers(u) { localStorage.setItem('bm_users', JSON.stringify(u)); },
   getSession() { return localStorage.getItem('bm_session'); },
@@ -595,21 +625,9 @@ function showToast(message, type) {
 
 // ==================== INIT ====================
 window.addEventListener('DOMContentLoaded', function() {
-  const users = Storage.getUsers();
-  let updated = false;
-  for (const [id, data] of Object.entries(PREMADE_ACCOUNTS)) {
-    if (!users[id]) {
-      users[id] = {
-        password: data.password,
-        balance: data.balance,
-        phone: id,
-        invite: '',
-        joined: Date.now()
-      };
-      updated = true;
-    }
-  }
-  if (updated) Storage.saveUsers(users);
+  // Get users (will auto-initialize from PREMADE_ACCOUNTS if needed)
+  var users = Storage.getUsers();
+  console.log('App initialized. Available accounts:', Object.keys(users));
 
   var session = Storage.getSession();
   if (session) showApp(session);
@@ -654,8 +672,17 @@ function doLogin() {
   }
 
   var users = Storage.getUsers();
-  if (!users[id] || users[id].password !== pwd) {
-    showToast('Incorrect User ID or password', 'error');
+  console.log('Login attempt - ID:', id, 'Password:', pwd);
+  console.log('Available users:', Object.keys(users));
+  console.log('User found:', users[id]);
+  
+  if (!users[id]) {
+    showToast('User ID not found', 'error');
+    return;
+  }
+  
+  if (users[id].password !== pwd) {
+    showToast('Incorrect password', 'error');
     return;
   }
 
