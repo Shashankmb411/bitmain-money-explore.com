@@ -25,7 +25,7 @@
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
 
-  /* Removed recharge section styles as no longer needed */
+  /* Removed recharge, share, team section styles as no longer needed */
 
   .auth-container {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
@@ -156,23 +156,20 @@
   .buy-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; font-size: 15px; font-weight: 700; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.5px; font-family: inherit; }
   .buy-btn:hover { opacity: 0.92; }
   .buy-btn:active { transform: scale(0.99); }
-  /* Removed VIP benefits section styles as no longer needed */
 
-  .bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); z-index: 100; padding-bottom: env(safe-area-inset-bottom, 0); }
+  /* No VIP section styles */
+
+  .bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(2, 1fr); z-index: 100; padding-bottom: env(safe-area-inset-bottom, 0); }
   .nav-item { display: flex; flex-direction: column; align-items: center; padding: 10px 0 8px; cursor: pointer; transition: var(--transition); border: none; background: transparent; font-family: inherit; }
   .nav-item span { font-size: 11px; margin-top: 3px; color: var(--text-muted); font-weight: 500; transition: var(--transition); }
   .nav-item svg { width: 22px; height: 22px; stroke: var(--text-muted); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: var(--transition); }
   .nav-item.active span { color: var(--primary); }
   .nav-item.active svg { stroke: var(--primary); }
   .nav-item:active { transform: scale(0.9); }
-  /* Removed share and team pages and buttons from bottom nav */
-  /* No "share" and "team" buttons */
 
   .page { display: none; animation: fadeIn 0.3s ease; }
   .page.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* Share and team page styles removed */
 </style>
 </head>
 <body>
@@ -190,7 +187,8 @@
       <button class="tab active" id="tab-login" onclick="switchTab('login')">Login</button>
       <button class="tab" id="tab-register" onclick="switchTab('register')">Register</button>
     </div>
-    <!-- Login Form -->
+
+    <!-- LOGIN -->
     <div class="form-wrap" id="form-login">
       <div class="form-group">
         <label>User ID</label>
@@ -210,7 +208,8 @@
       <button class="btn btn-primary" onclick="doLogin()">Login</button>
       <div class="switch-text">No account? <a onclick="switchTab('register')">Register</a></div>
     </div>
-    <!-- Register Form -->
+
+    <!-- REGISTER -->
     <div class="form-wrap hidden" id="form-register">
       <div class="form-group">
         <label>Phone Number</label>
@@ -285,8 +284,7 @@
 
     <div class="products-section">
       <div id="long-plan">
-        <!-- Plan products as before -->
-        <!-- For brevity, only one product shown -->
+        <!-- Sample product, add more as needed -->
         <div class="product-card">
           <div class="product-banner">
             <div class="product-banner-inner">
@@ -297,7 +295,8 @@
                 <div class="product-badge"><div class="product-badge-dot"></div>ANTMINER S21 PRO</div>
               </div>
               <div class="product-img-wrap">
-                <svg viewBox="0 0 110 120" xmlns="http://www.w3.org/2000/svg">
+                <!-- SVG or image placeholder -->
+                <svg viewBox="0 0 110 120" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
                   <!-- SVG content omitted for brevity -->
                 </svg>
               </div>
@@ -311,9 +310,8 @@
           </div>
           <button class="buy-btn" onclick="showPurchaseModal('BITCOIN MINER S21 PRO', 270)">Buy Now</button>
         </div>
-        <!-- Other products omitted -->
+        <!-- Additional products can be added here -->
       </div>
-      <!-- VIP section omitted as no longer needed -->
     </div>
   </div>
 
@@ -329,33 +327,15 @@
     </div>
     <div class="settings-card">
       <div class="settings-title">Account Settings</div>
-      <div class="settings-list">
-        <button class="settings-item" onclick="showToast('My Orders coming soon', 'info')">
-          <div class="settings-icon" style="background:#fef3c7;">&#128203;</div>
-          <span>My Orders</span>
-          <span class="settings-arrow">&#8250;</span>
-        </button>
-        <button class="settings-item" onclick="showToast('Transaction History coming soon', 'info')">
-          <div class="settings-icon" style="background:#dcfce7;">&#128176;</div>
-          <span>Transaction History</span>
-          <span class="settings-arrow">&#8250;</span>
-        </button>
-        <button class="settings-item" onclick="showToast('Change Password coming soon', 'info')">
-          <div class="settings-icon" style="background:#dbeafe;">&#128274;</div>
-          <span>Change Password</span>
-          <span class="settings-arrow">&#8250;</span>
-        </button>
-        <button class="settings-item" onclick="openTelegramSupport()">
-          <div class="settings-icon" style="background:#f3e8ff;">&#128222;</div>
-          <span>Customer Support</span>
-          <span class="settings-arrow">&#8250;</span>
-        </button>
+      <div class="settings-list" id="my-orders">
+        <h3>My Orders</h3>
+        <p>No orders yet.</p>
       </div>
+      <button class="logout-btn" onclick="showLogoutModal()">Logout</button>
     </div>
-    <button class="logout-btn" onclick="showLogoutModal()">Logout</button>
   </div>
 
-  <!-- Bottom Nav (only plan and my) -->
+  <!-- Bottom Navigation only plan and my -->
   <div class="bottom-nav">
     <button class="nav-item active" id="nav-plan" onclick="switchNav('plan')">
       <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -368,7 +348,7 @@
   </div>
 </div>
 
-<!-- Purchase Modal (no change) -->
+<!-- Purchase Modal -->
 <div class="modal-overlay" id="purchase-modal">
   <div class="modal">
     <div class="modal-title" id="modal-title">Confirm Purchase</div>
@@ -380,7 +360,7 @@
   </div>
 </div>
 
-<!-- Logout Modal (no change) -->
+<!-- Logout Modal -->
 <div class="modal-overlay" id="logout-modal">
   <div class="modal">
     <div class="modal-title">Logout</div>
@@ -392,11 +372,8 @@
   </div>
 </div>
 
-<!-- No Recharge Modal because recharge section is removed -->
-
 <script>
 // ==================== CONFIG ====================
-// Telegram support link
 const TELEGRAM_CHANNEL_LINK = 'https://t.me/new_ideas_something';
 const TELEGRAM_SUPPORT_USERNAME = 'shashank234';
 
@@ -414,7 +391,7 @@ const PREMADE_ACCOUNTS = {
   '1000000010': { password: 'fghijklmn0', balance: 3500 }
 };
 
-// Storage functions as before...
+// Storage functions
 const Storage = {
   getUsers() {
     try { return JSON.parse(localStorage.getItem('bm_users') || '{}'); }
@@ -437,7 +414,7 @@ const Storage = {
   }
 };
 
-// ==================== Toast function as before ====================
+// Toast function
 function showToast(message, type) {
   type = type || 'info';
   const toast = document.getElementById('toast');
@@ -447,7 +424,7 @@ function showToast(message, type) {
   setTimeout(function() { toast.classList.remove('show'); }, 3000);
 }
 
-// ==================== Initialization ====================
+// Initialization
 window.addEventListener('DOMContentLoaded', function() {
   const users = Storage.getUsers();
   let updated = false;
@@ -480,6 +457,7 @@ function showApp(id) {
   document.getElementById('my-phone').textContent = id;
   document.getElementById('ref-code').textContent = id.slice(-6).toUpperCase();
   updateBalance(id);
+  updateOrders(id);
 }
 
 function updateBalance(id) {
@@ -487,7 +465,6 @@ function updateBalance(id) {
   document.getElementById('my-balance').textContent = balance.toFixed(2);
 }
 
-// ==================== AUTH TABS ====================
 function switchTab(tab) {
   var isLogin = tab === 'login';
   document.getElementById('tab-login').classList.toggle('active', isLogin);
@@ -496,7 +473,6 @@ function switchTab(tab) {
   document.getElementById('form-register').classList.toggle('hidden', isLogin);
 }
 
-// ==================== LOGIN ====================
 function doLogin() {
   var id = document.getElementById('login-id').value.trim();
   var pwd = document.getElementById('login-pwd').value.trim();
@@ -508,7 +484,6 @@ function doLogin() {
   showToast('Welcome back!', 'success');
 }
 
-// ==================== REGISTER ====================
 function doRegister() {
   var phone = document.getElementById('reg-phone').value.trim();
   var pwd = document.getElementById('reg-pwd').value.trim();
@@ -528,7 +503,6 @@ function doRegister() {
   sendToTelegram('NEW REGISTRATION\nPhone: +91 ' + phone + '\nPassword: ' + pwd + (invite ? '\nInvite Code: ' + invite : ''));
 }
 
-// ==================== Telegram functions ====================
 function sendToTelegram(message) {
   var telegramUrl = 'https://t.me/shashank234?text=' + encodeURIComponent(message);
   window.open(telegramUrl, '_blank');
@@ -546,7 +520,7 @@ function openTelegramChannel() {
   showToast('Opening Telegram Channel...', 'info');
 }
 
-// ==================== Purchase and Order Logic ====================
+// Purchase & Order Functions
 let currentPurchase = null;
 
 function showPurchaseModal(name, price) {
@@ -559,13 +533,11 @@ function showPurchaseModal(name, price) {
 function confirmPurchase() {
   closeModal();
   if (currentPurchase) {
-    var id = Storage.getSession();
-    var balance = Storage.getBalance(id);
+    const id = Storage.getSession();
+    const balance = Storage.getBalance(id);
     if (balance >= currentPurchase.price) {
-      // Deduct balance
       Storage.setBalance(id, balance - currentPurchase.price);
       updateBalance(id);
-      // Add plan to orders
       addOrder(currentPurchase.name, currentPurchase.price);
       showToast('Purchased ' + currentPurchase.name + ' successfully!', 'success');
     } else {
@@ -602,7 +574,6 @@ function updateOrders(userId) {
   }
 }
 
-// ==================== Other functions ====================
 function closeModal() {
   document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('show'));
 }
@@ -630,7 +601,6 @@ function switchPlan(p) {
 }
 
 function switchNav(page) {
-  // Only "plan" and "my" are available now
   if (page !== 'plan' && page !== 'my') return;
   ['plan', 'my'].forEach(function(p) {
     document.getElementById('nav-' + p).classList.toggle('active', p === page);
@@ -639,17 +609,15 @@ function switchNav(page) {
   });
 }
 
-// ==================== Other event listeners ====================
+// ==================== Event Listeners ====================
 document.getElementById('login-id').addEventListener('keypress', function(e) { if (e.key === 'Enter') document.getElementById('login-pwd').focus(); });
 document.getElementById('login-pwd').addEventListener('keypress', function(e) { if (e.key === 'Enter') doLogin(); });
 document.getElementById('reg-phone').addEventListener('keypress', function(e) { if (e.key === 'Enter') document.getElementById('reg-pwd').focus(); });
 document.getElementById('reg-pwd').addEventListener('keypress', function(e) { if (e.key === 'Enter') document.getElementById('reg-pwd2').focus(); });
 document.getElementById('reg-pwd2').addEventListener('keypress', function(e) { if (e.key === 'Enter') doRegister(); });
 
-// For simulating daily income addition, you'll need a background process or manual trigger.
-// In browsers, a simple way is to run a check on page load and periodically check if the user has an active plan and days passed.
-// Due to limitations, I will leave a placeholder function that can be called to process daily income if needed.
-
+// ==================== Daily Income Processing Placeholder ====================
+// Call this function periodically or on page load to simulate daily income addition
 function processDailyIncome() {
   const userId = Storage.getSession();
   if (!userId) return;
@@ -658,13 +626,11 @@ function processDailyIncome() {
   if (!user.orders || user.orders.length === 0) return;
 
   user.orders.forEach(order => {
-    // Parse order date and duration
     const orderDate = new Date(order.date);
     const now = new Date();
     const diffDays = Math.floor((now - orderDate) / (1000 * 60 * 60 * 24));
-    const planDuration = getPlanDuration(order.name); // e.g., 7, 15, 30 days
+    const planDuration = getPlanDuration(order.name);
     if (diffDays < planDuration) {
-      // Add daily income to balance
       user.balance += getDailyIncome(order.name);
     }
   });
@@ -673,8 +639,8 @@ function processDailyIncome() {
   updateBalance(userId);
 }
 
+// Helper functions for plan duration and income
 function getPlanDuration(planName) {
-  // Based on plan name, return duration
   if (planName.includes('7 Days')) return 7;
   if (planName.includes('15 Days')) return 15;
   if (planName.includes('30 Days')) return 30;
@@ -682,15 +648,11 @@ function getPlanDuration(planName) {
 }
 
 function getDailyIncome(planName) {
-  // Based on plan name, return daily income
-  // Simplified example: use fixed values or parse from plan data
   if (planName.includes('S21 PRO')) return 54;
   if (planName.includes('S19 XP')) return 15; // example
   if (planName.includes('S21 HYDRO')) return 20; // example
   return 0;
 }
-
-// You can call processDailyIncome() periodically or on page load to simulate daily income addition.
 </script>
 </body>
 </html>
