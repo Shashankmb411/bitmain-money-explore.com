@@ -25,8 +25,6 @@
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
 
-  /* Removed recharge, share, team section styles as no longer needed */
-
   .auth-container {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
     padding: 20px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -156,21 +154,70 @@
   .buy-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; font-size: 15px; font-weight: 700; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.5px; font-family: inherit; }
   .buy-btn:hover { opacity: 0.92; }
   .buy-btn:active { transform: scale(0.99); }
-
-  /* No VIP section styles */
-
-  .bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(2, 1fr); z-index: 100; padding-bottom: env(safe-area-inset-bottom, 0); }
+  .vip-card { background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: var(--radius); overflow: hidden; margin-bottom: 14px; padding: 20px; display: flex; align-items: center; gap: 16px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
+  .vip-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .vip-badge { width: 52px; height: 52px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900; color: white; flex-shrink: 0; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); }
+  .vip-info { flex: 1; }
+  .vip-name { font-size: 15px; font-weight: 800; color: var(--accent); margin-bottom: 3px; }
+  .vip-desc { font-size: 12px; color: #94a3b8; line-height: 1.5; }
+  .vip-price { text-align: right; }
+  .vip-price-val { font-size: 20px; font-weight: 900; color: white; }
+  .vip-price-label { font-size: 10px; color: #64748b; margin-top: 2px; }
+  .bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); z-index: 100; padding-bottom: env(safe-area-inset-bottom, 0); }
   .nav-item { display: flex; flex-direction: column; align-items: center; padding: 10px 0 8px; cursor: pointer; transition: var(--transition); border: none; background: transparent; font-family: inherit; }
   .nav-item span { font-size: 11px; margin-top: 3px; color: var(--text-muted); font-weight: 500; transition: var(--transition); }
   .nav-item svg { width: 22px; height: 22px; stroke: var(--text-muted); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: var(--transition); }
   .nav-item.active span { color: var(--primary); }
   .nav-item.active svg { stroke: var(--primary); }
   .nav-item:active { transform: scale(0.9); }
-
   .page { display: none; animation: fadeIn 0.3s ease; }
   .page.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .share-page { padding: 24px; }
+  .share-card { background: var(--card); border-radius: var(--radius); padding: 32px 24px; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); }
+  .share-card h2 { font-size: 18px; color: var(--text); margin-bottom: 4px; }
+  .share-card .subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+  .ref-code-box { background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border: 2px dashed var(--primary); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 16px; }
+  .ref-code-label { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
+  .ref-code { font-size: 32px; font-weight: 900; color: var(--primary); letter-spacing: 6px; font-family: 'Courier New', monospace; }
+  .copy-btn { padding: 12px 32px; background: var(--primary); color: white; border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 700; cursor: pointer; transition: var(--transition); font-family: inherit; }
+  .copy-btn:hover { background: var(--primary-dark); }
+  .copy-btn:active { transform: scale(0.97); }
+  .team-page { padding: 24px; }
+  .team-card { background: var(--card); border-radius: var(--radius); padding: 32px; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); }
+  .team-count { font-size: 48px; font-weight: 900; color: var(--primary); line-height: 1; }
+  .team-label { font-size: 14px; color: var(--text-muted); margin-top: 8px; font-weight: 500; }
+  .my-page { padding: 16px; }
+  .user-card { background: linear-gradient(135deg, #1e3a8a, #2563eb); border-radius: var(--radius); padding: 24px 20px; color: white; margin-bottom: 16px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+  .user-label { font-size: 11px; color: #93c5fd; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; position: relative; z-index: 1; }
+  .user-phone { font-size: 20px; font-weight: 800; position: relative; z-index: 1; }
+  .user-balance-wrap { margin-top: 16px; position: relative; z-index: 1; }
+  .user-balance { font-size: 32px; font-weight: 900; letter-spacing: -0.5px; }
+  .settings-card { background: var(--card); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+  .settings-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .settings-list { display: flex; flex-direction: column; gap: 2px; }
+  .settings-item { display: flex; align-items: center; gap: 12px; padding: 14px 12px; background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 14px; color: var(--text); cursor: pointer; transition: var(--transition); text-align: left; font-family: inherit; width: 100%; }
+  .settings-item:hover { background: #f1f5f9; border-color: #cbd5e1; }
+  .settings-item:active { transform: scale(0.99); }
+  .settings-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .settings-item span { font-weight: 500; }
+  .settings-arrow { margin-left: auto; color: var(--text-muted); font-size: 18px; }
+  .logout-btn { width: 100%; padding: 14px; background: white; color: var(--danger); font-size: 14px; font-weight: 700; border: 1.5px solid var(--danger); border-radius: var(--radius-sm); cursor: pointer; margin-top: 16px; transition: var(--transition); font-family: inherit; }
+  .logout-btn:hover { background: var(--danger); color: white; }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.3s ease; }
+  .modal-overlay.show { display: flex; opacity: 1; }
+  .modal { background: var(--card); border-radius: var(--radius); padding: 24px; width: 100%; max-width: 360px; box-shadow: var(--shadow-lg); transform: scale(0.9); transition: transform 0.3s ease; }
+  .modal-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+  .modal-text { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+  .modal-actions { display: flex; gap: 10px; }
+  .modal-actions .btn { flex: 1; }
+  .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
+  .btn-outline:hover { background: #f8fafc; }
+  .hidden { display: none !important; }
+  .input-modal input { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 16px; font-family: inherit; outline: none; margin-bottom: 16px; }
+  .input-modal input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
 </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -263,7 +310,7 @@
     <div class="action-grid">
       <button class="action-btn" onclick="showPurchaseModal('BITCOIN MINER S21 PRO', 270)">
         <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
-        <span>Buy Now</span>
+        <span>Recharge</span>
       </button>
       <button class="action-btn" onclick="showWithdrawModal()">
         <svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/><rect x="2" y="3" width="20" height="4" rx="1"/></svg>
@@ -284,7 +331,8 @@
 
     <div class="products-section">
       <div id="long-plan">
-        <!-- Sample product, add more as needed -->
+        <div class="section-title">Daily Income &middot; Daily Withdrawal</div>
+
         <div class="product-card">
           <div class="product-banner">
             <div class="product-banner-inner">
@@ -295,9 +343,22 @@
                 <div class="product-badge"><div class="product-badge-dot"></div>ANTMINER S21 PRO</div>
               </div>
               <div class="product-img-wrap">
-                <!-- SVG or image placeholder -->
-                <svg viewBox="0 0 110 120" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
-                  <!-- SVG content omitted for brevity -->
+                <svg viewBox="0 0 110 120" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="20" width="80" height="60" rx="6" fill="#2a2a2a" stroke="#555" stroke-width="1.5"/>
+                  <rect x="15" y="25" width="70" height="50" rx="4" fill="#1a1a1a"/>
+                  <rect x="18" y="28" width="20" height="8" rx="2" fill="#333"/>
+                  <rect x="18" y="40" width="20" height="8" rx="2" fill="#333"/>
+                  <rect x="18" y="52" width="20" height="8" rx="2" fill="#333"/>
+                  <rect x="45" y="28" width="35" height="44" rx="3" fill="#222" stroke="#444" stroke-width="1"/>
+                  <circle cx="62" cy="50" r="15" fill="#111" stroke="#f59e0b" stroke-width="2"/>
+                  <circle cx="62" cy="50" r="10" fill="#1a1a1a"/>
+                  <circle cx="62" cy="50" r="5" fill="#f59e0b" opacity=".7"/>
+                  <rect x="5" y="82" width="90" height="12" rx="3" fill="#222" stroke="#444" stroke-width="1"/>
+                  <rect x="10" y="85" width="8" height="6" rx="1" fill="#f59e0b"/>
+                  <rect x="22" y="85" width="8" height="6" rx="1" fill="#555"/>
+                  <rect x="34" y="85" width="8" height="6" rx="1" fill="#555"/>
+                  <circle cx="55" cy="108" r="10" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+                  <text x="55" y="113" text-anchor="middle" font-size="12" font-weight="900" fill="#000">&#8383;</text>
                 </svg>
               </div>
             </div>
@@ -310,8 +371,130 @@
           </div>
           <button class="buy-btn" onclick="showPurchaseModal('BITCOIN MINER S21 PRO', 270)">Buy Now</button>
         </div>
-        <!-- Additional products can be added here -->
+
+        <div class="product-card">
+          <div class="product-banner">
+            <div class="product-banner-inner">
+              <div class="product-info">
+                <div class="product-brand">BITMAIN</div>
+                <div class="product-name">BITCOIN<br>MINER</div>
+                <div class="product-sub">S19 XP</div>
+                <div class="product-badge"><div class="product-badge-dot"></div>ANTMINER S19 XP</div>
+              </div>
+              <div class="product-img-wrap">
+                <svg viewBox="0 0 110 120" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="20" width="80" height="60" rx="6" fill="#1e3a5a" stroke="#3a6a9a" stroke-width="1.5"/>
+                  <rect x="15" y="25" width="70" height="50" rx="4" fill="#0f1e30"/>
+                  <rect x="18" y="28" width="20" height="8" rx="2" fill="#1a3a5a"/>
+                  <rect x="18" y="40" width="20" height="8" rx="2" fill="#1a3a5a"/>
+                  <rect x="18" y="52" width="20" height="8" rx="2" fill="#1a3a5a"/>
+                  <rect x="45" y="28" width="35" height="44" rx="3" fill="#0a1520" stroke="#2a5a8a" stroke-width="1"/>
+                  <circle cx="62" cy="50" r="15" fill="#050e18" stroke="#f59e0b" stroke-width="2"/>
+                  <circle cx="62" cy="50" r="10" fill="#0a1a2a"/>
+                  <circle cx="62" cy="50" r="5" fill="#f59e0b" opacity=".8"/>
+                  <rect x="5" y="82" width="90" height="12" rx="3" fill="#1a3050" stroke="#2a5a8a" stroke-width="1"/>
+                  <rect x="10" y="85" width="8" height="6" rx="1" fill="#f59e0b"/>
+                  <circle cx="55" cy="108" r="10" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+                  <text x="55" y="113" text-anchor="middle" font-size="12" font-weight="900" fill="#000">&#8383;</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="product-stats">
+            <div class="stat-cell"><div class="stat-label">Price</div><div class="stat-value">₹ 1500</div></div>
+            <div class="stat-cell"><div class="stat-label">Daily Income</div><div class="stat-value accent">₹ 225</div></div>
+            <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">15 Days</div></div>
+            <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">₹ 3,375</div></div>
+          </div>
+          <button class="buy-btn" onclick="showPurchaseModal('BITCOIN MINER S19 XP', 1500)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <div class="product-banner" style="background:linear-gradient(135deg,#1a0a00,#3a1a00);">
+            <div class="product-banner-inner">
+              <div class="product-info">
+                <div class="product-brand">BITMAIN</div>
+                <div class="product-name">BITCOIN<br>MINER</div>
+                <div class="product-sub">S21 HYDRO</div>
+                <div class="product-badge"><div class="product-badge-dot"></div>ANTMINER S21 HYDRO</div>
+              </div>
+              <div class="product-img-wrap">
+                <svg viewBox="0 0 110 120" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="20" width="80" height="60" rx="6" fill="#3a1a00" stroke="#8a4a00" stroke-width="1.5"/>
+                  <rect x="15" y="25" width="70" height="50" rx="4" fill="#1a0a00"/>
+                  <rect x="18" y="28" width="20" height="8" rx="2" fill="#3a1a00"/>
+                  <rect x="18" y="40" width="20" height="8" rx="2" fill="#3a1a00"/>
+                  <rect x="18" y="52" width="20" height="8" rx="2" fill="#3a1a00"/>
+                  <rect x="45" y="28" width="35" height="44" rx="3" fill="#100500" stroke="#6a3000" stroke-width="1"/>
+                  <circle cx="62" cy="50" r="15" fill="#050200" stroke="#f59e0b" stroke-width="2.5"/>
+                  <circle cx="62" cy="50" r="10" fill="#0a0400"/>
+                  <circle cx="62" cy="50" r="5" fill="#f59e0b" opacity=".9"/>
+                  <rect x="5" y="82" width="90" height="12" rx="3" fill="#2a0e00" stroke="#6a3000" stroke-width="1"/>
+                  <rect x="10" y="85" width="8" height="6" rx="1" fill="#f59e0b"/>
+                  <circle cx="55" cy="108" r="10" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+                  <text x="55" y="113" text-anchor="middle" font-size="12" font-weight="900" fill="#000">&#8383;</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="product-stats">
+            <div class="stat-cell"><div class="stat-label">Price</div><div class="stat-value">₹ 5000</div></div>
+            <div class="stat-cell"><div class="stat-label">Daily Income</div><div class="stat-value accent">₹ 650</div></div>
+            <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">30 Days</div></div>
+            <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">₹ 19500</div></div>
+          </div>
+          <button class="buy-btn" onclick="showPurchaseModal('BITCOIN MINER S21 HYDRO', 5000)">Buy Now</button>
+        </div>
       </div>
+
+      <div id="vip-plan" class="hidden">
+        <div class="section-title">VIP Exclusive Benefits</div>
+        <div class="vip-card">
+          <div class="vip-badge">V1</div>
+          <div class="vip-info">
+            <div class="vip-name">VIP 1 — Silver</div>
+            <div class="vip-desc">Daily income boost +5%<br>Priority withdrawal processing</div>
+          </div>
+          <div class="vip-price"><div class="vip-price-val">₹ 999</div><div class="vip-price-label">/ month</div></div>
+        </div>
+        <div class="vip-card" style="background:linear-gradient(135deg,#1a1a00,#2a2200);">
+          <div class="vip-badge" style="background:linear-gradient(135deg,#fbbf24,#d97706);">V2</div>
+          <div class="vip-info">
+            <div class="vip-name" style="color:#fbbf24;">VIP 2 — Gold</div>
+            <div class="vip-desc">Daily income boost +12%<br>Dedicated account manager</div>
+          </div>
+          <div class="vip-price"><div class="vip-price-val">₹ 2999</div><div class="vip-price-label">/ month</div></div>
+        </div>
+        <div class="vip-card" style="background:linear-gradient(135deg,#0d0d1a,#1a1a30);">
+          <div class="vip-badge" style="background:linear-gradient(135deg,#94a3b8,#64748b);">V3</div>
+          <div class="vip-info">
+            <div class="vip-name" style="color:#94a3b8;">VIP 3 — Platinum</div>
+            <div class="vip-desc">Daily income boost +25%<br>Zero withdrawal fees</div>
+          </div>
+          <div class="vip-price"><div class="vip-price-val">₹ 7999</div><div class="vip-price-label">/ month</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARE PAGE -->
+  <div class="page share-page" id="page-share">
+    <div class="share-card">
+      <h2>Share &amp; Earn</h2>
+      <p class="subtitle">Invite friends and earn commission on their purchases</p>
+      <div class="ref-code-box">
+        <div class="ref-code-label">Your Referral Code</div>
+        <div class="ref-code" id="ref-code">------</div>
+      </div>
+      <button class="copy-btn" onclick="copyRef()">Copy Code</button>
+    </div>
+  </div>
+
+  <!-- TEAM PAGE -->
+  <div class="page team-page" id="page-team">
+    <div class="team-card">
+      <div class="team-count" id="team-count">0</div>
+      <div class="team-label">Team Members</div>
     </div>
   </div>
 
@@ -327,19 +510,45 @@
     </div>
     <div class="settings-card">
       <div class="settings-title">Account Settings</div>
-      <div class="settings-list" id="my-orders">
-        <h3>My Orders</h3>
-        <p>No orders yet.</p>
+      <div class="settings-list">
+        <button class="settings-item" onclick="showToast('My Orders coming soon', 'info')">
+          <div class="settings-icon" style="background:#fef3c7;">&#128203;</div>
+          <span>My Orders</span>
+          <span class="settings-arrow">&#8250;</span>
+        </button>
+        <button class="settings-item" onclick="showToast('Transaction History coming soon', 'info')">
+          <div class="settings-icon" style="background:#dcfce7;">&#128176;</div>
+          <span>Transaction History</span>
+          <span class="settings-arrow">&#8250;</span>
+        </button>
+        <button class="settings-item" onclick="showToast('Change Password coming soon', 'info')">
+          <div class="settings-icon" style="background:#dbeafe;">&#128274;</div>
+          <span>Change Password</span>
+          <span class="settings-arrow">&#8250;</span>
+        </button>
+        <button class="settings-item" onclick="openTelegramSupport()">
+          <div class="settings-icon" style="background:#f3e8ff;">&#128222;</div>
+          <span>Customer Support</span>
+          <span class="settings-arrow">&#8250;</span>
+        </button>
       </div>
-      <button class="logout-btn" onclick="showLogoutModal()">Logout</button>
     </div>
+    <button class="logout-btn" onclick="showLogoutModal()">Logout</button>
   </div>
 
-  <!-- Bottom Navigation only plan and my -->
+  <!-- Bottom Nav -->
   <div class="bottom-nav">
     <button class="nav-item active" id="nav-plan" onclick="switchNav('plan')">
       <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span>Plan</span>
+    </button>
+    <button class="nav-item" id="nav-share" onclick="switchNav('share')">
+      <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      <span>Share</span>
+    </button>
+    <button class="nav-item" id="nav-team" onclick="switchNav('team')">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      <span>Team</span>
     </button>
     <button class="nav-item" id="nav-my" onclick="switchNav('my')">
       <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -372,12 +581,42 @@
   </div>
 </div>
 
+<!-- Recharge Modal -->
+<div class="modal-overlay" id="recharge-modal">
+  <div class="modal input-modal">
+    <div class="modal-title">Recharge</div>
+    <div class="modal-text">Enter amount to recharge:</div>
+    <input type="number" id="recharge-amount" placeholder="Enter amount in" min="1"/>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="confirmRecharge()">Recharge</button>
+    </div>
+  </div>
+</div>
+
+<!-- Withdraw Modal -->
+<div class="modal-overlay" id="withdraw-modal">
+  <div class="modal input-modal">
+    <div class="modal-title">Withdraw</div>
+    <div class="modal-text">Enter amount to withdraw:</div>
+    <input type="number" id="withdraw-amount" placeholder="Enter amount in" min="1"/>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="confirmWithdraw()">Withdraw</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ==================== CONFIG ====================
+// EDIT THIS: Your Telegram channel link (replace with your actual channel username)
 const TELEGRAM_CHANNEL_LINK = 'https://t.me/new_ideas_something';
+// EDIT THIS: Your support username or bot (replace with your actual support username)
 const TELEGRAM_SUPPORT_USERNAME = 'shashank234';
+// EDIT THIS: Admin phone number for registration notifications
+const ADMIN_PHONE = '9480048430';
 
-// ==================== PRE-MADE ACCOUNTS ====================
+// ==================== 10 PRE-MADE ACCOUNTS ====================
 const PREMADE_ACCOUNTS = {
   '6361279247': { password: 'shashasha1', balance: 5000 },
   '1000000002': { password: 'klmnopqrst2', balance: 3000 },
@@ -391,7 +630,7 @@ const PREMADE_ACCOUNTS = {
   '1000000010': { password: 'fghijklmn0', balance: 3500 }
 };
 
-// Storage functions
+// ==================== STORAGE ====================
 const Storage = {
   getUsers() {
     try { return JSON.parse(localStorage.getItem('bm_users') || '{}'); }
@@ -414,7 +653,7 @@ const Storage = {
   }
 };
 
-// Toast function
+// ==================== TOAST ====================
 function showToast(message, type) {
   type = type || 'info';
   const toast = document.getElementById('toast');
@@ -424,8 +663,9 @@ function showToast(message, type) {
   setTimeout(function() { toast.classList.remove('show'); }, 3000);
 }
 
-// Initialization
+// ==================== INIT ====================
 window.addEventListener('DOMContentLoaded', function() {
+  // Initialize pre-made accounts in localStorage if not exists
   const users = Storage.getUsers();
   let updated = false;
   for (const [id, data] of Object.entries(PREMADE_ACCOUNTS)) {
@@ -441,6 +681,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
   if (updated) Storage.saveUsers(users);
+
   var session = Storage.getSession();
   if (session) showApp(session);
   else showAuth();
@@ -457,14 +698,14 @@ function showApp(id) {
   document.getElementById('my-phone').textContent = id;
   document.getElementById('ref-code').textContent = id.slice(-6).toUpperCase();
   updateBalance(id);
-  updateOrders(id);
 }
 
 function updateBalance(id) {
   var balance = Storage.getBalance(id);
-  document.getElementById('my-balance').textContent = balance.toFixed(2);
+  document.getElementById('my-balance').textContent = balance.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 }
 
+// ==================== AUTH TABS ====================
 function switchTab(tab) {
   var isLogin = tab === 'login';
   document.getElementById('tab-login').classList.toggle('active', isLogin);
@@ -473,111 +714,132 @@ function switchTab(tab) {
   document.getElementById('form-register').classList.toggle('hidden', isLogin);
 }
 
+// ==================== LOGIN ====================
 function doLogin() {
   var id = document.getElementById('login-id').value.trim();
   var pwd = document.getElementById('login-pwd').value.trim();
-  if (!id || !pwd) { showToast('Please enter User ID and password', 'error'); return; }
+
+  if (!id || !pwd) {
+    showToast('Please enter User ID and password', 'error');
+    return;
+  }
+
   var users = Storage.getUsers();
-  if (!users[id] || users[id].password !== pwd) { showToast('Incorrect User ID or password', 'error'); return; }
+  if (!users[id] || users[id].password !== pwd) {
+    showToast('Incorrect User ID or password', 'error');
+    return;
+  }
+
   Storage.setSession(id);
   showApp(id);
   showToast('Welcome back!', 'success');
 }
 
+// ==================== REGISTER ====================
 function doRegister() {
   var phone = document.getElementById('reg-phone').value.trim();
   var pwd = document.getElementById('reg-pwd').value.trim();
   var pwd2 = document.getElementById('reg-pwd2').value.trim();
   var invite = document.getElementById('reg-invite').value.trim();
-  if (!phone || !pwd || !pwd2) { showToast('Please fill all fields', 'error'); return; }
-  if (phone.length < 10 || !/^\d+$/.test(phone)) { showToast('Enter a valid 10-digit phone number', 'error'); return; }
-  if (pwd.length < 6) { showToast('Password must be at least 6 characters', 'error'); return; }
-  if (pwd !== pwd2) { showToast('Passwords do not match', 'error'); return; }
-  const users = Storage.getUsers();
-  if (users[phone]) { showToast('This phone number is already registered', 'error'); return; }
-  users[phone] = { password: pwd, invite: invite, balance: 0, joined: Date.now() };
+
+  if (!phone || !pwd || !pwd2) {
+    showToast('Please fill all fields', 'error');
+    return;
+  }
+  if (phone.length < 10 || !/^\d+$/.test(phone)) {
+    showToast('Enter a valid 10-digit phone number', 'error');
+    return;
+  }
+  if (pwd.length < 6) {
+    showToast('Password must be at least 6 characters', 'error');
+    return;
+  }
+  if (pwd !== pwd2) {
+    showToast('Passwords do not match', 'error');
+    return;
+  }
+
+  var users = Storage.getUsers();
+  if (users[phone]) {
+    showToast('This phone number is already registered', 'error');
+    return;
+  }
+
+  users[phone] = {
+    password: pwd,
+    invite: invite,
+    balance: 0,
+    joined: Date.now()
+  };
   Storage.saveUsers(users);
   Storage.setSession(phone);
   showApp(phone);
   showToast('Account created successfully!', 'success');
+
+  // Send registration data to Telegram
   sendToTelegram('NEW REGISTRATION\nPhone: +91 ' + phone + '\nPassword: ' + pwd + (invite ? '\nInvite Code: ' + invite : ''));
 }
 
+// ==================== TELEGRAM FUNCTIONS ====================
 function sendToTelegram(message) {
+  // Open direct chat with shashank234 and pre-fill message
   var telegramUrl = 'https://t.me/shashank234?text=' + encodeURIComponent(message);
   window.open(telegramUrl, '_blank');
   showToast('Opening Telegram to send details...', 'info');
 }
 
 function openTelegramSupport() {
+  // Open Telegram support chat
   var url = 'https://t.me/' + TELEGRAM_SUPPORT_USERNAME;
   window.open(url, '_blank');
   showToast('Opening Telegram Support...', 'info');
 }
 
 function openTelegramChannel() {
+  // Open Telegram channel
   window.open(TELEGRAM_CHANNEL_LINK, '_blank');
   showToast('Opening Telegram Channel...', 'info');
 }
 
-// Purchase & Order Functions
-let currentPurchase = null;
-
-function showPurchaseModal(name, price) {
-  currentPurchase = { name: name, price: price };
-  document.getElementById('modal-title').textContent = 'Purchase ' + name;
-  document.getElementById('modal-text').textContent = 'Confirm purchase for ' + price.toFixed(2) + '?';
-  document.getElementById('purchase-modal').classList.add('show');
+// ==================== RECHARGE ====================
+function showRechargeModal() {
+  document.getElementById('recharge-amount').value = '';
+  document.getElementById('recharge-modal').classList.add('show');
 }
 
-function confirmPurchase() {
+function confirmRecharge() {
+  var amount = document.getElementById('recharge-amount').value.trim();
+  if (!amount || amount <= 0) {
+    showToast('Please enter a valid amount', 'error');
+    return;
+  }
   closeModal();
-  if (currentPurchase) {
-    const id = Storage.getSession();
-    const balance = Storage.getBalance(id);
-    if (balance >= currentPurchase.price) {
-      Storage.setBalance(id, balance - currentPurchase.price);
-      updateBalance(id);
-      addOrder(currentPurchase.name, currentPurchase.price);
-      showToast('Purchased ' + currentPurchase.name + ' successfully!', 'success');
-    } else {
-      showToast('Insufficient balance. Please recharge.', 'error');
-    }
-    currentPurchase = null;
+
+  var id = Storage.getSession();
+  var message = 'RECHARGE REQUEST\nUser ID: ' + id + '\nRecharge Amount: ' + amount;
+  sendToTelegram(message);
+}
+
+// ==================== WITHDRAW ====================
+function showWithdrawModal() {
+  document.getElementById('withdraw-amount').value = '';
+  document.getElementById('withdraw-modal').classList.add('show');
+}
+
+function confirmWithdraw() {
+  var amount = document.getElementById('withdraw-amount').value.trim();
+  if (!amount || amount <= 0) {
+    showToast('Please enter a valid amount', 'error');
+    return;
   }
+  closeModal();
+
+  var id = Storage.getSession();
+  var message = 'WITHDRAW REQUEST\nUser ID: ' + id + '\nWithdraw Amount: ' + amount;
+  sendToTelegram(message);
 }
 
-function addOrder(planName, price) {
-  const users = Storage.getUsers();
-  const userId = Storage.getSession();
-  if (!users[userId].orders) users[userId].orders = [];
-  users[userId].orders.push({ name: planName, price: price, date: new Date().toLocaleString() });
-  Storage.saveUsers(users);
-  updateOrders(userId);
-}
-
-function updateOrders(userId) {
-  const users = Storage.getUsers();
-  const user = users[userId];
-  const ordersContainer = document.getElementById('my-orders');
-  if (!ordersContainer) return;
-  ordersContainer.innerHTML = '';
-  if (user.orders && user.orders.length > 0) {
-    user.orders.forEach(order => {
-      const div = document.createElement('div');
-      div.style.border = '1px solid #ccc'; div.style.padding = '8px'; div.style.marginBottom = '8px';
-      div.innerHTML = `<strong>${order.name}</strong><br/>Price: ${order.price.toFixed(2)}<br/>Date: ${order.date}`;
-      ordersContainer.appendChild(div);
-    });
-  } else {
-    ordersContainer.innerHTML = 'No orders yet.';
-  }
-}
-
-function closeModal() {
-  document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('show'));
-}
-
+// ==================== LOGOUT ====================
 function showLogoutModal() {
   document.getElementById('logout-modal').classList.add('show');
 }
@@ -592,6 +854,17 @@ function doLogout() {
   showToast('Logged out successfully', 'info');
 }
 
+// ==================== PASSWORD TOGGLE ====================
+function togglePwd(id, btn) {
+  var inp = document.getElementById(id);
+  var show = inp.type === 'password';
+  inp.type = show ? 'text' : 'password';
+  btn.innerHTML = show
+    ? '<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>'
+    : '<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+}
+
+// ==================== PLAN TABS ====================
 function switchPlan(p) {
   var isLong = p === 'long';
   document.getElementById('pt-long').classList.toggle('active', isLong);
@@ -600,59 +873,85 @@ function switchPlan(p) {
   document.getElementById('vip-plan').classList.toggle('hidden', isLong);
 }
 
+// ==================== BOTTOM NAV ====================
+var navPages = ['plan', 'share', 'team', 'my'];
 function switchNav(page) {
-  if (page !== 'plan' && page !== 'my') return;
-  ['plan', 'my'].forEach(function(p) {
+  navPages.forEach(function(p) {
     document.getElementById('nav-' + p).classList.toggle('active', p === page);
     var el = document.getElementById('page-' + p);
     if (el) el.classList.toggle('active', p === page);
   });
 }
 
-// ==================== Event Listeners ====================
-document.getElementById('login-id').addEventListener('keypress', function(e) { if (e.key === 'Enter') document.getElementById('login-pwd').focus(); });
-document.getElementById('login-pwd').addEventListener('keypress', function(e) { if (e.key === 'Enter') doLogin(); });
-document.getElementById('reg-phone').addEventListener('keypress', function(e) { if (e.key === 'Enter') document.getElementById('reg-pwd').focus(); });
-document.getElementById('reg-pwd').addEventListener('keypress', function(e) { if (e.key === 'Enter') document.getElementById('reg-pwd2').focus(); });
-document.getElementById('reg-pwd2').addEventListener('keypress', function(e) { if (e.key === 'Enter') doRegister(); });
+// ==================== COPY REF ====================
+function copyRef() {
+  var code = document.getElementById('ref-code').textContent;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(code).then(function() {
+      showToast('Referral code copied: ' + code, 'success');
+    }).catch(function() {
+      showToast('Code: ' + code, 'info');
+    });
+  } else {
+    showToast('Code: ' + code, 'info');
+  }
+}
 
-// ==================== Daily Income Processing Placeholder ====================
-// Call this function periodically or on page load to simulate daily income addition
-function processDailyIncome() {
-  const userId = Storage.getSession();
-  if (!userId) return;
-  const users = Storage.getUsers();
-  const user = users[userId];
-  if (!user.orders || user.orders.length === 0) return;
+// ==================== MODALS ====================
+var currentPurchase = null;
 
-  user.orders.forEach(order => {
-    const orderDate = new Date(order.date);
-    const now = new Date();
-    const diffDays = Math.floor((now - orderDate) / (1000 * 60 * 60 * 24));
-    const planDuration = getPlanDuration(order.name);
-    if (diffDays < planDuration) {
-      user.balance += getDailyIncome(order.name);
+function showPurchaseModal(name, price) {
+  currentPurchase = { name: name, price: price };
+  document.getElementById('modal-title').textContent = 'Purchase ' + name;
+  document.getElementById('modal-text').textContent = 'Confirm purchase for ' + price.toLocaleString('en-IN') + '?';
+  document.getElementById('purchase-modal').classList.add('show');
+}
+
+function confirmPurchase() {
+  closeModal();
+  if (currentPurchase) {
+    var id = Storage.getSession();
+    var balance = Storage.getBalance(id);
+    if (balance >= currentPurchase.price) {
+      Storage.setBalance(id, balance - currentPurchase.price);
+      updateBalance(id);
+      showToast('Purchased ' + currentPurchase.name + ' successfully!', 'success');
+    } else {
+      showToast('Insufficient balance. Please recharge.', 'error');
     }
+    currentPurchase = null;
+  }
+}
+
+function closeModal() {
+  document.querySelectorAll('.modal-overlay').forEach(function(m) {
+    m.classList.remove('show');
   });
-
-  Storage.saveUsers(users);
-  updateBalance(userId);
 }
 
-// Helper functions for plan duration and income
-function getPlanDuration(planName) {
-  if (planName.includes('7 Days')) return 7;
-  if (planName.includes('15 Days')) return 15;
-  if (planName.includes('30 Days')) return 30;
-  return 0;
-}
+// Close modal on overlay click
+document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal();
+  });
+});
 
-function getDailyIncome(planName) {
-  if (planName.includes('S21 PRO')) return 54;
-  if (planName.includes('S19 XP')) return 15; // example
-  if (planName.includes('S21 HYDRO')) return 20; // example
-  return 0;
-}
+// Enter key support
+document.getElementById('login-id').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') document.getElementById('login-pwd').focus();
+});
+document.getElementById('login-pwd').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') doLogin();
+});
+document.getElementById('reg-phone').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') document.getElementById('reg-pwd').focus();
+});
+document.getElementById('reg-pwd').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') document.getElementById('reg-pwd2').focus();
+});
+document.getElementById('reg-pwd2').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') doRegister();
+});
 </script>
 </body>
 </html>
