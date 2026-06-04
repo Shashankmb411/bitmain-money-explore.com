@@ -24,7 +24,6 @@
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-
   .auth-container {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
     padding: 20px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -105,7 +104,6 @@
   .toast.error { background: var(--danger); }
   .toast.success { background: var(--success); }
   .toast.info { background: var(--primary); }
-
   .app-container {
     display: none; max-width: 480px; margin: 0 auto; min-height: 100vh;
     padding-bottom: 80px; position: relative; background: var(--bg);
@@ -121,6 +119,9 @@
   .plan-tabs { display: flex; background: var(--card); border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-sm); border: 1.5px solid var(--border); }
   .plan-tab { flex: 1; padding: 12px 0; text-align: center; font-size: 13px; font-weight: 700; cursor: pointer; transition: var(--transition); background: transparent; border: none; color: var(--text-muted); font-family: inherit; }
   .plan-tab.active { background: var(--primary); color: white; }
+  .withdraw-btn { padding: 12px 16px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.5px; font-family: inherit; border-radius: var(--radius-sm); box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35); }
+  .withdraw-btn:hover { opacity: 0.92; }
+  .withdraw-btn:active { transform: scale(0.99); }
   .section-title { text-align: center; font-size: 12px; font-weight: 800; color: var(--primary); letter-spacing: 2px; padding: 20px 0 12px; text-transform: uppercase; }
   .products-section { padding: 0 16px 16px; }
   .product-card { background: var(--card); border-radius: var(--radius); overflow: hidden; margin-bottom: 16px; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid var(--border); }
@@ -299,6 +300,7 @@
         <button class="plan-tab active" id="pt-long" onclick="switchPlan('long')">Long-term Plan</button>
         <button class="plan-tab" id="pt-vip" onclick="switchPlan('vip')">VIP Benefits</button>
       </div>
+      <button class="withdraw-btn" onclick="openWithdrawModal()" style="margin-top: 12px; width: calc(100% - 32px); margin-left: 16px; margin-right: 16px;">Withdraw</button>
     </div>
 
     <div class="products-section">
@@ -514,6 +516,19 @@
   </div>
 </div>
 
+<!-- Withdraw Modal -->
+<div class="modal-overlay" id="withdraw-modal">
+  <div class="modal">
+    <div class="modal-title">Withdraw Balance</div>
+    <div class="modal-text">Enter the amount you want to withdraw:</div>
+    <input type="number" id="withdraw-amount" placeholder="Enter amount" min="1" style="width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 16px; font-family: inherit; outline: none; margin-bottom: 16px;"/>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" style="background:linear-gradient(135deg, #10b981 0%, #059669 100%);box-shadow:0 4px 14px rgba(16, 185, 129, 0.35);" onclick="confirmWithdraw()">Withdraw</button>
+    </div>
+  </div>
+</div>
+
 <!-- Logout Modal -->
 <div class="modal-overlay" id="logout-modal">
   <div class="modal">
@@ -530,8 +545,9 @@
 // ==================== CONFIG ====================
 const TELEGRAM_LINK = 'https://t.me/shashank234';
 
-// ==================== 10 PRE-MADE ACCOUNTS ====================
-const PREMADE_ACCOUNTS = {
+// ==================== EDITABLE USER ACCOUNTS ====================
+// Edit user credentials here - changes will be loaded automatically on page refresh
+var PREMADE_ACCOUNTS = {
   '6361279247': { password: 'shashasha1', balance: 5000 },
   '1000000002': { password: 'klmnopqrst2', balance: 3000 },
   '1000000003': { password: 'uvwxyzabc3', balance: 10000 },
@@ -713,6 +729,28 @@ function buyNowTelegram(productName, amount) {
   var telegramUrl = TELEGRAM_LINK + '?text=' + encodeURIComponent(message);
   window.open(telegramUrl, '_blank');
   showToast('Opening Telegram to complete purchase...', 'info');
+}
+
+// ==================== WITHDRAW ====================
+function openWithdrawModal() {
+  document.getElementById('withdraw-amount').value = '';
+  document.getElementById('withdraw-modal').classList.add('show');
+}
+
+function confirmWithdraw() {
+  var amount = document.getElementById('withdraw-amount').value.trim();
+  if (!amount || amount <= 0) {
+    showToast('Please enter a valid amount', 'error');
+    return;
+  }
+
+  var id = Storage.getSession();
+  var message = 'withdraw - Amount: ' + amount + ' - User ID: ' + id;
+  var telegramUrl = TELEGRAM_LINK + '?text=' + encodeURIComponent(message);
+  
+  closeModal();
+  window.open(telegramUrl, '_blank');
+  showToast('Opening Telegram for withdrawal...', 'info');
 }
 
 // ==================== LOGOUT ====================
