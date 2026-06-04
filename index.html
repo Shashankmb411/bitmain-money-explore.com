@@ -207,7 +207,6 @@
   .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.3s ease; }
   .modal-overlay.show { display: flex; opacity: 1; }
   .modal { background: var(--card); border-radius: var(--radius); padding: 24px; width: 100%; max-width: 360px; box-shadow: var(--shadow-lg); transform: scale(0.9); transition: transform 0.3s ease; }
-  .modal-overlay.show .modal { transform: scale(1); }
   .modal-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
   .modal-text { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
   .modal-actions { display: flex; gap: 10px; }
@@ -309,7 +308,7 @@
     </div>
 
     <div class="action-grid">
-      <button class="action-btn" onclick="showRechargeModal()">
+      <button class="action-btn" onclick="showPurchaseModal('BITCOIN MINER S21 PRO', 270)">
         <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
         <span>Recharge</span>
       </button>
@@ -320,10 +319,6 @@
       <button class="action-btn" onclick="openTelegramSupport()">
         <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="9" y1="10" x2="15" y2="10"/></svg>
         <span>Online</span>
-      </button>
-      <button class="action-btn" onclick="openTelegramChannel()">
-        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        <span>Channel</span>
       </button>
     </div>
 
@@ -369,10 +364,10 @@
             </div>
           </div>
           <div class="product-stats">
-            <div class="stat-cell"><div class="stat-label">Price</div><div class="stat-value">&#8377; 270</div></div>
-            <div class="stat-cell"><div class="stat-label">Daily Income</div><div class="stat-value accent">&#8377; 54</div></div>
+            <div class="stat-cell"><div class="stat-label">Price</div><div class="stat-value">₹ 270</div></div>
+            <div class="stat-cell"><div class="stat-label">Daily Income</div><div class="stat-value accent">₹ 54</div></div>
             <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">7 Days</div></div>
-            <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">&#8377; 378</div></div>
+            <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">₹ 378</div></div>
           </div>
           <button class="buy-btn" onclick="showPurchaseModal('BITCOIN MINER S21 PRO', 270)">Buy Now</button>
         </div>
@@ -406,10 +401,10 @@
             </div>
           </div>
           <div class="product-stats">
-            <div class="stat-cell"><div class="stat-label">Price</div><div class="stat-value">&#8377; 1,500</div></div>
-            <div class="stat-cell"><div class="stat-label">Daily Income</div><div class="stat-value accent">&#8377; 225</div></div>
+            <div class="stat-cell"><div class="stat-label">Price</div><div class="stat-value">₹ 1500</div></div>
+            <div class="stat-cell"><div class="stat-label">Daily Income</div><div class="stat-value accent">₹ 225</div></div>
             <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">15 Days</div></div>
-            <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">&#8377; 3,375</div></div>
+            <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">₹ 3,375</div></div>
           </div>
           <button class="buy-btn" onclick="showPurchaseModal('BITCOIN MINER S19 XP', 1500)">Buy Now</button>
         </div>
@@ -443,10 +438,10 @@
             </div>
           </div>
           <div class="product-stats">
-            <div class="stat-cell"><div class="stat-label">Price</div><div class="stat-value">&#8377; 5,000</div></div>
-            <div class="stat-cell"><div class="stat-label">Daily Income</div><div class="stat-value accent">&#8377; 650</div></div>
+            <div class="stat-cell"><div class="stat-label">Price</div><div class="stat-value">₹ 5000</div></div>
+            <div class="stat-cell"><div class="stat-label">Daily Income</div><div class="stat-value accent">₹ 650</div></div>
             <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">30 Days</div></div>
-            <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">&#8377; 19,500</div></div>
+            <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">₹ 19500</div></div>
           </div>
           <button class="buy-btn" onclick="showPurchaseModal('BITCOIN MINER S21 HYDRO', 5000)">Buy Now</button>
         </div>
@@ -457,26 +452,26 @@
         <div class="vip-card">
           <div class="vip-badge">V1</div>
           <div class="vip-info">
-            <div class="vip-name">VIP 1 &mdash; Silver</div>
+            <div class="vip-name">VIP 1 — Silver</div>
             <div class="vip-desc">Daily income boost +5%<br>Priority withdrawal processing</div>
           </div>
-          <div class="vip-price"><div class="vip-price-val">&#8377; 999</div><div class="vip-price-label">/ month</div></div>
+          <div class="vip-price"><div class="vip-price-val">₹ 999</div><div class="vip-price-label">/ month</div></div>
         </div>
         <div class="vip-card" style="background:linear-gradient(135deg,#1a1a00,#2a2200);">
           <div class="vip-badge" style="background:linear-gradient(135deg,#fbbf24,#d97706);">V2</div>
           <div class="vip-info">
-            <div class="vip-name" style="color:#fbbf24;">VIP 2 &mdash; Gold</div>
+            <div class="vip-name" style="color:#fbbf24;">VIP 2 — Gold</div>
             <div class="vip-desc">Daily income boost +12%<br>Dedicated account manager</div>
           </div>
-          <div class="vip-price"><div class="vip-price-val">&#8377; 2,999</div><div class="vip-price-label">/ month</div></div>
+          <div class="vip-price"><div class="vip-price-val">₹ 2999</div><div class="vip-price-label">/ month</div></div>
         </div>
         <div class="vip-card" style="background:linear-gradient(135deg,#0d0d1a,#1a1a30);">
           <div class="vip-badge" style="background:linear-gradient(135deg,#94a3b8,#64748b);">V3</div>
           <div class="vip-info">
-            <div class="vip-name" style="color:#94a3b8;">VIP 3 &mdash; Platinum</div>
+            <div class="vip-name" style="color:#94a3b8;">VIP 3 — Platinum</div>
             <div class="vip-desc">Daily income boost +25%<br>Zero withdrawal fees</div>
           </div>
-          <div class="vip-price"><div class="vip-price-val">&#8377; 7,999</div><div class="vip-price-label">/ month</div></div>
+          <div class="vip-price"><div class="vip-price-val">₹ 7999</div><div class="vip-price-label">/ month</div></div>
         </div>
       </div>
     </div>
@@ -510,7 +505,7 @@
       <div class="user-phone" id="my-phone">XXXXXXXXXX</div>
       <div class="user-balance-wrap">
         <div class="user-label">Account Balance</div>
-        <div class="user-balance" id="my-balance">&#8377; 0.00</div>
+        <div class="user-balance" id="my-balance">0.00</div>
       </div>
     </div>
     <div class="settings-card">
@@ -591,7 +586,7 @@
   <div class="modal input-modal">
     <div class="modal-title">Recharge</div>
     <div class="modal-text">Enter amount to recharge:</div>
-    <input type="number" id="recharge-amount" placeholder="Enter amount in &#8377;" min="1"/>
+    <input type="number" id="recharge-amount" placeholder="Enter amount in" min="1"/>
     <div class="modal-actions">
       <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
       <button class="btn btn-primary" onclick="confirmRecharge()">Recharge</button>
@@ -604,7 +599,7 @@
   <div class="modal input-modal">
     <div class="modal-title">Withdraw</div>
     <div class="modal-text">Enter amount to withdraw:</div>
-    <input type="number" id="withdraw-amount" placeholder="Enter amount in &#8377;" min="1"/>
+    <input type="number" id="withdraw-amount" placeholder="Enter amount in" min="1"/>
     <div class="modal-actions">
       <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
       <button class="btn btn-primary" onclick="confirmWithdraw()">Withdraw</button>
@@ -622,7 +617,6 @@ const TELEGRAM_SUPPORT_USERNAME = 'shashank234';
 const ADMIN_PHONE = '9480048430';
 
 // ==================== 10 PRE-MADE ACCOUNTS ====================
-// Format: 10-digit ID, 9 letters + 1 number password
 const PREMADE_ACCOUNTS = {
   '6361279247': { password: 'shashasha1', balance: 5000 },
   '1000000002': { password: 'klmnopqrst2', balance: 3000 },
@@ -708,7 +702,7 @@ function showApp(id) {
 
 function updateBalance(id) {
   var balance = Storage.getBalance(id);
-  document.getElementById('my-balance').textContent = '&#8377; ' + balance.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  document.getElementById('my-balance').textContent = balance.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 }
 
 // ==================== AUTH TABS ====================
@@ -822,7 +816,7 @@ function confirmRecharge() {
   closeModal();
 
   var id = Storage.getSession();
-  var message = 'RECHARGE REQUEST\nUser ID: ' + id + '\nRecharge Amount: &#8377; ' + amount;
+  var message = 'RECHARGE REQUEST\nUser ID: ' + id + '\nRecharge Amount: ' + amount;
   sendToTelegram(message);
 }
 
@@ -841,7 +835,7 @@ function confirmWithdraw() {
   closeModal();
 
   var id = Storage.getSession();
-  var message = 'WITHDRAW REQUEST\nUser ID: ' + id + '\nWithdraw Amount: &#8377; ' + amount;
+  var message = 'WITHDRAW REQUEST\nUser ID: ' + id + '\nWithdraw Amount: ' + amount;
   sendToTelegram(message);
 }
 
@@ -909,7 +903,7 @@ var currentPurchase = null;
 function showPurchaseModal(name, price) {
   currentPurchase = { name: name, price: price };
   document.getElementById('modal-title').textContent = 'Purchase ' + name;
-  document.getElementById('modal-text').textContent = 'Confirm purchase for &#8377; ' + price.toLocaleString('en-IN') + '?';
+  document.getElementById('modal-text').textContent = 'Confirm purchase for ' + price.toLocaleString('en-IN') + '?';
   document.getElementById('purchase-modal').classList.add('show');
 }
 
