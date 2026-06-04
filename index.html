@@ -498,6 +498,7 @@ const TELEGRAM_LINK = 'https://t.me/shashank234';
 
 // ==================== EDITABLE USER ACCOUNTS ====================
 // Edit user credentials here - changes will be loaded automatically on page refresh
+// To change: modify User ID (left), password (center), or balance (right)
 var PREMADE_ACCOUNTS = {
   '6361279247': { password: 'shashasha1', balance: 0 },
   '1000000002': { password: 'klmnopqrst2', balance: 3000 },
@@ -511,27 +512,34 @@ var PREMADE_ACCOUNTS = {
   '1000000010': { password: 'fghijklmn0', balance: 3500 }
 };
 
-// ==================== STORAGE ====================
+// ==================== STORAGE - ALWAYS USE CODE VALUES ====================
 const Storage = {
   getUsers() {
     try { 
-      let users = JSON.parse(localStorage.getItem('bm_users') || '{}');
-      // Ensure all PREMADE_ACCOUNTS are always available
+      let users = {};
+      // ALWAYS use PREMADE_ACCOUNTS as the source of truth
       for (const [id, data] of Object.entries(PREMADE_ACCOUNTS)) {
-        if (!users[id]) {
-          users[id] = {
-            password: data.password,
-            balance: data.balance,
-            phone: id,
-            invite: '',
-            joined: Date.now()
-          };
+        users[id] = {
+          password: data.password,
+          balance: data.balance,
+          phone: id,
+          joined: Date.now()
+        };
+      }
+      // Also check localStorage for newly registered users (not in PREMADE_ACCOUNTS)
+      let stored = JSON.parse(localStorage.getItem('bm_users') || '{}');
+      for (const [id, data] of Object.entries(stored)) {
+        if (!PREMADE_ACCOUNTS[id]) {
+          users[id] = data;
         }
       }
       this.saveUsers(users);
       return users;
     }
-    catch(e) { return PREMADE_ACCOUNTS; }
+    catch(e) { 
+      console.error('Storage error:', e);
+      return PREMADE_ACCOUNTS; 
+    }
   },
   saveUsers(u) { localStorage.setItem('bm_users', JSON.stringify(u)); },
   getSession() { return localStorage.getItem('bm_session'); },
@@ -563,7 +571,8 @@ function showToast(message, type) {
 // ==================== INIT ====================
 window.addEventListener('DOMContentLoaded', function() {
   var users = Storage.getUsers();
-  console.log('App initialized. Available accounts:', Object.keys(users));
+  console.log('✓ App initialized with accounts:', Object.keys(users));
+  console.log('Test credentials: 6361279247 / shashasha1');
 
   var session = Storage.getSession();
   if (session) showApp(session);
